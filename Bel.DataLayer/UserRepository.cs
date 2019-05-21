@@ -9,14 +9,14 @@ namespace Bel.DataLayer
     public class UserRepository
     {
         beldatabaseEntities beldatabaseEntities = new beldatabaseEntities();
-        public IEnumerable<User> GetUsers()
+        public List<User> GetUsers()
         {
             return beldatabaseEntities.Users.ToList();
         }
 
         public User GetUserById(int id)
         {
-            return beldatabaseEntities.Users.Find(id);
+            return beldatabaseEntities.Users.FirstOrDefault(x=>x.Id==id);
         }
 
     }
