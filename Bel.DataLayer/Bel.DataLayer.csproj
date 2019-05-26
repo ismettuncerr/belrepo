@@ -50,55 +50,76 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bel.Context.cs">
+    <Compile Include="bel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Bel.Context.tt</DependentUpon>
+      <DependentUpon>bel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Bel.cs">
+    <Compile Include="bel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Bel.tt</DependentUpon>
+      <DependentUpon>bel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Bel.Designer.cs">
+    <Compile Include="bel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Bel.edmx</DependentUpon>
+      <DependentUpon>bel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="UserRepository.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Event.cs">
+      <DependentUpon>bel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\IGenericRepository.cs" />
+    <Compile Include="MunicipalityClass.cs">
+      <DependentUpon>bel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\EventRepository.cs" />
+    <Compile Include="Repository\GenericRepository.cs" />
+    <Compile Include="Repository\MunicipalityClassRepository.cs" />
+    <Compile Include="Repository\ReservationRepository.cs" />
+    <Compile Include="Repository\SchoolClassRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Repository\UserRoleRepository.cs" />
+    <Compile Include="Reservation.cs">
+      <DependentUpon>bel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SchoolClass.cs">
+      <DependentUpon>bel.tt</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
-      <DependentUpon>Bel.tt</DependentUpon>
+      <DependentUpon>bel.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserRepository1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserRole.cs">
-      <DependentUpon>Bel.tt</DependentUpon>
+      <DependentUpon>bel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="Bel.edmx">
+    <EntityDeploy Include="bel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Bel.Designer.cs</LastGenOutput>
+      <LastGenOutput>bel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Bel.edmx.diagram">
-      <DependentUpon>Bel.edmx</DependentUpon>
+    <None Include="bel.edmx.diagram">
+      <DependentUpon>bel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Bel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Bel.edmx</DependentUpon>
-      <LastGenOutput>Bel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Bel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Bel.edmx</DependentUpon>
-      <LastGenOutput>Bel.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="bel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>bel.edmx</DependentUpon>
+      <LastGenOutput>bel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="bel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>bel.edmx</DependentUpon>
+      <LastGenOutput>bel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

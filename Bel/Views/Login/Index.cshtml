@@ -1,69 +1,53 @@
 ﻿
 @{
-    ViewBag.Title = "Contact";
+    ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<section class="search-course-area relative">
-    <div class="overlay overlay-bg"></div>
-    <div class="container">
-        <div class="row justify-content-between align-items-center">
-            <div class="col-lg-6 col-md-6 search-course-left">
-                <h1 class="text-white">
-                    Get reduced fee <br>
-                    during this Summer!
-                </h1>
-                <p>
-                    inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why it’s crucial that, as women, our behavior on the job is beyond reproach.
-                </p>
-                <div class="row details-content">
-                    <div class="col single-detials">
-                        <span class="lnr lnr-graduation-hat"></span>
-                        <a href="#"><h4>Expert Instructors</h4></a>
-                        <p>
-                            Usage of the Internet is becoming more common due to rapid advancement of technology and power.
-                        </p>
-                    </div>
-                    <div class="col single-detials">
-                        <span class="lnr lnr-license"></span>
-                        <a href="#"><h4>Certification</h4></a>
-                        <p>
-                            Usage of the Internet is becoming more common due to rapid advancement of technology and power.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 search-course-right section-gap">
-                <form class="form-wrap" action="/Login" method="post">
-                    <h4 class="text-white pb-20 text-center mb-30">Search for Available Course</h4>
-                    <input type="text" class="form-control" name="name" placeholder="Your Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Name'">
-                    <input type="phone" class="form-control" name="phone" placeholder="Your Phone Number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Phone Number'">
-                    <input type="email" class="form-control" name="email" placeholder="Your Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address'">
+<!-- End banner Area -->
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
 
-                    @ViewBag.PasswordControl
-                    <br />
-                    <br />
+
+            <form class="login100-form validate-form" action="/Login" method="post">
+                <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+                    <span class="label-input100">Username</span>
+                    <span class="focus-input100"></span>
                     <div class="form-select" id="service-select">
 
                         <select id="Id" name="Id">
-                            <option datd-display="">Choose Course</option>
+                            <option datd-display="">Okulunuzu Seçiniz</option>
                             @foreach (var item in Model)
                             {
                                 <option value="@item.Id">@item.Name</option>
                             }
 
                             <!--<option value="1">Course One</option>
-            <option value="2">Course Two</option>
-                <option value="3">Course Three</option>
-                <option value="4">Course Four</option>-->
+                            <option value="2">Course Two</option>
+                                <option value="3">Course Three</option>
+                                <option value="4">Course Four</option>-->
                         </select>
                     </div>
+                </div>
+                <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+                    <span class="label-input100">Password</span>
+                    <input class="input100" type="password" name="password" placeholder="Enter password">
+                    <span class="focus-input100"></span>
+                </div>
 
-                    <input type="password" class="form-control" name="password" placeholder="Şifre" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Şifre'">
+                <div class="flex-sb-m w-full p-b-30">
 
-                    <button type="submit" class="primary-btn text-uppercase">Submit</button>
-                </form>
-            </div>
+                    <div>
+                        <div class="txt1" style="color:#ff0000; font-size:15px">
+                            @ViewBag.PasswordControl
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <button type="submit" class="login100-form-btn">Login</button>
+                </div>
+            </form>
         </div>
     </div>
-</section>
-
+</div>

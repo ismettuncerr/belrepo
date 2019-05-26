@@ -25,7 +25,11 @@ namespace Bel.DataLayer
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<UserRole> UserRoles { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Event> Event { get; set; }
+        public virtual DbSet<MunicipalityClass> MunicipalityClass { get; set; }
+        public virtual DbSet<Reservation> Reservation { get; set; }
+        public virtual DbSet<SchoolClass> SchoolClass { get; set; }
+        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<UserRole> UserRole { get; set; }
     }
 }

@@ -1,19 +1,24 @@
 ﻿using Bel.DataLayer;
+using Bel.DataLayer.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace Bel.Controllers
 {
     public class LoginController : Controller
     {
         UserRepository userRepository = new UserRepository();
+        UserRoleRepository userRoleRepository = new UserRoleRepository();
         // GET: Login
+        [OutputCache(Duration = 1000)]
         public ActionResult Index()
         {
-            ViewBag.Title = "Contact";
+            FormsAuthentication.SignOut();
+            ViewBag.Title = "Login";
             /*List<SelectListItem> users = new List<SelectListItem>();
 
             users.AddRange(userRepository.GetUsers().Select(x => new SelectListItem { Text = x.Name, Value = x.Id.ToString() }));*/
@@ -26,12 +31,16 @@ namespace Bel.Controllers
         {
             if (user.Id > 0)
             {
-                var userControl = userRepository.GetUserById(user.Id);
+                var userControl = userRepository.Get(user.Id);
                 if (userControl != null)
                 {
                     if (userControl.Password == user.Password)
                     {
-                        return RedirectToAction("Index", "Home");
+                        FormsAuthentication.SetAuthCookie(user.Id.ToString(),false);
+                        if(userRoleRepository.GetUserRoleById(user.Id)=="Guest")
+                            return RedirectToAction("Appointment", "Login");
+                        else
+                            return RedirectToAction("Index", "Appointment");
                     }
                     else
                     {
@@ -44,10 +53,23 @@ namespace Bel.Controllers
             return View(userList());
         }
 
+        [Authorize(Roles = "Guest")]
+        public ActionResult Appointment()
+        {
+            return View();
+        }
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
+
+        
         public List<User> userList()
         {
-            List<User> users = new List<User>();
-            return userRepository.GetUsers();
+            return userRepository.GetAll().ToList();
         }
+
     }
 }

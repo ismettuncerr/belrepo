@@ -1,4 +1,5 @@
 ﻿using Bel.DataLayer;
+using Bel.DataLayer.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace Bel.Controllers
 
             users.AddRange(userRepository.GetUsers().Select(x => new SelectListItem { Text = x.Name, Value = x.Id.ToString() }));*/
             List<User> users = new List<User>();
-            users=userRepository.GetUsers();
+            users = userRepository.GetAll().ToList();
             return View(users);
         }
     }

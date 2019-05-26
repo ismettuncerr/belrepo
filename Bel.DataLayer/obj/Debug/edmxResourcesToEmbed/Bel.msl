@@ -1,22 +1,65 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="beldatabaseModelStoreContainer" CdmEntityContainer="beldatabaseEntities">
-    <EntitySetMapping Name="UserRoles">
-      <EntityTypeMapping TypeName="beldatabaseModel.UserRole">
-        <MappingFragment StoreEntitySet="UserRole">
+    <EntitySetMapping Name="Event">
+      <EntityTypeMapping TypeName="beldatabaseModel.Event">
+        <MappingFragment StoreEntitySet="Event">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="RefMunicipalityClassId" ColumnName="RefMunicipalityClassId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Users">
+    <EntitySetMapping Name="MunicipalityClass">
+      <EntityTypeMapping TypeName="beldatabaseModel.MunicipalityClass">
+        <MappingFragment StoreEntitySet="MunicipalityClass">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Quota" ColumnName="Quota" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reservation">
+      <EntityTypeMapping TypeName="beldatabaseModel.Reservation">
+        <MappingFragment StoreEntitySet="Reservation">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="AdvisorName" ColumnName="AdvisorName" />
+          <ScalarProperty Name="RefUserId" ColumnName="RefUserId" />
+          <ScalarProperty Name="RefMunicipalityClassId" ColumnName="RefMunicipalityClassId" />
+          <ScalarProperty Name="RefSchoolId" ColumnName="RefSchoolId" />
+          <ScalarProperty Name="RefEventId" ColumnName="RefEventId" />
+          <ScalarProperty Name="StudentsJson" ColumnName="StudentsJson" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SchoolClass">
+      <EntityTypeMapping TypeName="beldatabaseModel.SchoolClass">
+        <MappingFragment StoreEntitySet="SchoolClass">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RefUserId" ColumnName="RefUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
       <EntityTypeMapping TypeName="beldatabaseModel.User">
-        <MappingFragment StoreEntitySet="Users">
+        <MappingFragment StoreEntitySet="User">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="EMail" ColumnName="EMail" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="RefUserRoleId" ColumnName="RefUserRoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRole">
+      <EntityTypeMapping TypeName="beldatabaseModel.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
