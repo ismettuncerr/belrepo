@@ -19,3 +19,8 @@ packages/
 .vs/Bel/v15/Server/sqlite3/storage.ide-shm
 
 .vs/config/applicationhost.config
+*.ide-shm
+*.cache
+*.cache
+*.cache
+.vs/config/applicationhost.config
