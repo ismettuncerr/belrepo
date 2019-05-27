@@ -1,15 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="beldatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Event">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="StartDate" Type="DateTime" Precision="3" />
-    <Property Name="EndDate" Type="DateTime" Precision="3" />
-    <Property Name="RefMunicipalityClassId" Type="Int32" />
-  </EntityType>
   <EntityType Name="MunicipalityClass">
     <Key>
       <PropertyRef Name="Id" />
@@ -17,19 +7,6 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Quota" Type="Int32" />
-  </EntityType>
-  <EntityType Name="Reservation">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="IsActive" Type="Boolean" />
-    <Property Name="AdvisorName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="RefUserId" Type="Int32" />
-    <Property Name="RefMunicipalityClassId" Type="Int32" />
-    <Property Name="RefSchoolId" Type="Int32" />
-    <Property Name="RefEventId" Type="Int32" />
-    <Property Name="StudentsJson" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="SchoolClass">
     <Key>
@@ -57,11 +34,34 @@
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityContainer Name="beldatabaseEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Event" EntityType="Self.Event" />
     <EntitySet Name="MunicipalityClass" EntityType="Self.MunicipalityClass" />
-    <EntitySet Name="Reservation" EntityType="Self.Reservation" />
     <EntitySet Name="SchoolClass" EntityType="Self.SchoolClass" />
     <EntitySet Name="User" EntityType="Self.User" />
     <EntitySet Name="UserRole" EntityType="Self.UserRole" />
+    <EntitySet Name="ClassHour" EntityType="beldatabaseModel.ClassHour" />
+    <EntitySet Name="Reservation" EntityType="beldatabaseModel.Reservation" />
   </EntityContainer>
+  <EntityType Name="ClassHour">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Hour" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RefMunicipalityClassId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Reservation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="AdvisorName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="RefUserId" Type="Int32" />
+    <Property Name="RefMunicipalityClassId" Type="Int32" />
+    <Property Name="RefSchoolId" Type="Int32" />
+    <Property Name="RefClassHourId" Type="Int32" />
+    <Property Name="StudentsJson" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReservationDate" Type="DateTime" Precision="3" />
+  </EntityType>
 </Schema>

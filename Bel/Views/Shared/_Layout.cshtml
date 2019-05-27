@@ -35,6 +35,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+
 </body>
 </html>
 
@@ -679,7 +680,7 @@
                         <li><a href="/Home/Index">Anasayfa</a></li>
                         <li><a href="about.html">Hakkımızda</a></li>
                         <li><a href="events.html">Haberler</a></li>
-                        <li><a href="/Login/Appointment">Randevu Al</a></li>
+                        <li><a href="/Appointment/Appointment">Randevu Al</a></li>
                         @if (User.IsInRole("Guest"))
                         {
                             <li class="menu-has-children">
@@ -732,9 +733,9 @@
             </div>
         </div>
     </section>
-    
-        @RenderBody()        
-    
+
+    @RenderBody()
+
 
     <footer class="footer-area section-gap">
         <div class="container">
@@ -807,7 +808,7 @@
                 <p class="footer-text m-0 col-lg-6 col-md-12">
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     Copyright &copy;
-                    
+
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </p>
                 <div class="col-lg-6 col-sm-12 footer-social">
@@ -822,7 +823,6 @@
     <!-- End footer Area -->
 
     <script src="~/Scripts/vendor/jquery-2.2.4.min.js"></script>
-    <script src="~/Scripts/vendor/jquery-2.2.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="~/Scripts/vendor/bootstrap.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
@@ -836,5 +836,7 @@
     <script src="~/Scripts/owl.carousel.min.js"></script>
     <script src="~/Scripts/mail-script.js"></script>
     <script src="~/Scripts/main.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
 </body>
 </html>

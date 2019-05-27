@@ -22,3 +22,15 @@ D:\Users\ituncer\source\repos\Bel2\Bel.DataLayer\obj\Debug\Bel.DataLayer.csproj.
 D:\Users\ituncer\source\repos\Bel2\Bel.DataLayer\obj\Debug\Bel.DataLayer.csproj.CopyComplete
 D:\Users\ituncer\source\repos\Bel2\Bel.DataLayer\obj\Debug\Bel.DataLayer.dll
 D:\Users\ituncer\source\repos\Bel2\Bel.DataLayer\obj\Debug\Bel.DataLayer.pdb
+D:\Users\ituncer\Documents\GitHub\belrepo\Bel.DataLayer\bin\Debug\Bel.DataLayer.dll.config
+D:\Users\ituncer\Documents\GitHub\belrepo\Bel.DataLayer\bin\Debug\Bel.DataLayer.dll
+D:\Users\ituncer\Documents\GitHub\belrepo\Bel.DataLayer\bin\Debug\Bel.DataLayer.pdb
+D:\Users\ituncer\Documents\GitHub\belrepo\Bel.DataLayer\bin\Debug\EntityFramework.dll
+D:\Users\ituncer\Documents\GitHub\belrepo\Bel.DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\Users\ituncer\Documents\GitHub\belrepo\Bel.DataLayer\bin\Debug\EntityFramework.xml
+D:\Users\ituncer\Documents\GitHub\belrepo\Bel.DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\Users\ituncer\Documents\GitHub\belrepo\Bel.DataLayer\obj\Debug\Bel.DataLayer.csprojAssemblyReference.cache
+D:\Users\ituncer\Documents\GitHub\belrepo\Bel.DataLayer\obj\Debug\Bel.DataLayer.csproj.CoreCompileInputs.cache
+D:\Users\ituncer\Documents\GitHub\belrepo\Bel.DataLayer\obj\Debug\Bel.DataLayer.csproj.CopyComplete
+D:\Users\ituncer\Documents\GitHub\belrepo\Bel.DataLayer\obj\Debug\Bel.DataLayer.dll
+D:\Users\ituncer\Documents\GitHub\belrepo\Bel.DataLayer\obj\Debug\Bel.DataLayer.pdb

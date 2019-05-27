@@ -12,12 +12,11 @@ namespace Bel.DataLayer
     using System;
     using System.Collections.Generic;
     
-    public partial class Event
+    public partial class ClassHour
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public Nullable<System.DateTime> StartDate { get; set; }
-        public Nullable<System.DateTime> EndDate { get; set; }
+        public string Hour { get; set; }
         public Nullable<int> RefMunicipalityClassId { get; set; }
     }
 }

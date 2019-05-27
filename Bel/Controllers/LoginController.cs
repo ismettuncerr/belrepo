@@ -38,7 +38,7 @@ namespace Bel.Controllers
                     {
                         FormsAuthentication.SetAuthCookie(user.Id.ToString(),false);
                         if(userRoleRepository.GetUserRoleById(user.Id)=="Guest")
-                            return RedirectToAction("Appointment", "Login");
+                            return RedirectToAction("Appointment", "Appointment");
                         else
                             return RedirectToAction("Index", "Appointment");
                     }

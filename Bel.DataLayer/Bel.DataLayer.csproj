@@ -65,14 +65,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>bel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Event.cs">
+    <Compile Include="ClassHour.cs">
       <DependentUpon>bel.tt</DependentUpon>
     </Compile>
     <Compile Include="Interface\IGenericRepository.cs" />
     <Compile Include="MunicipalityClass.cs">
       <DependentUpon>bel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Repository\EventRepository.cs" />
+    <Compile Include="Repository\ClassHourRepository.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
     <Compile Include="Repository\MunicipalityClassRepository.cs" />
     <Compile Include="Repository\ReservationRepository.cs" />

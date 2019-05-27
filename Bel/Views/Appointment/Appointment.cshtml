@@ -1,0 +1,126 @@
+﻿
+@{
+    ViewBag.Title = "Appointment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/vendor/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //$("div.nights > h5 > div.num").text()
+
+        $('select[name=municipalityClassId]').change(function () {
+            var date = $("#datepicker").val();
+            var municipalityClassId = $('select[name=municipalityClassId]').val();
+            if (date == "") {
+                return;
+            } else {
+                GetDate(municipalityClassId, date)
+            }
+        });
+        $("#datepicker").datepicker({
+            // The hidden field to receive the date
+            altField: "#dateHidden",
+            // The format you want
+            altFormat: "yy-mm-dd",
+            // The format the user actually sees
+            dateFormat: "dd.mm.yy",
+            onSelect: function (date) {
+                // Your CSS changes, just in case you still need them
+                //$('.deneme > .nice-select').html("asdasd");
+                var date = $("#datepicker").val();
+                var municipalityClassId = $('select[name=municipalityClassId]').val();
+                if (municipalityClassId == "Sınıf Seçiniz") {
+                    return;
+                } else {
+                    GetDate(municipalityClassId, date)
+                }
+            }
+        });
+    });
+    function GetDate(municipalityClassId, date) {
+        $('.hours > .nice-select > span').text('Sınıf Seçiniz');
+        $.ajax({
+            url: '/Appointment/GetDate',
+            type: 'POST',
+            data: { 'municipalityClassId': municipalityClassId, 'date': date },
+            success: function (results) {
+                if (results == "") {
+                    alert("15 günden daha ileri tarihli bir gün seçemezsiniz");
+                } else {
+                    var classHour = JSON.parse(results)
+                    var options = '';
+                    var li = '';
+                    li = "<li data-value='Sınıf Seçiniz' class='option'>Sınıf Seçiniz</li>";
+                    for (var x = 0; x < classHour.length; x++) {
+                        options += '<option value="' + classHour[x]['Id'] + '">' + classHour[x]['Hour'] + '</option>';
+                        li += '<li data-value="' + classHour[x]['Id'] + '" class="option focus">' + classHour[x]['Hour'] + '</li>'
+                    }
+                    $('.hours > .nice-select > ul').html(li);
+                    $('#classHour').html(options);
+                    
+                    console.log(options);
+                }
+                /*var postlink = "";
+                var taksitadedi = "";
+                results = results.split("_");
+                taksitadedi = results[0];
+                postlink = results[1];
+                var options = '';
+                for (var x = 1; x <= taksitadedi; x++) {
+                    options += '<option value="0' + x + '">' + x + " Taksit" + '</option>';
+                }
+                $('#taksitsec').html(options);
+                document.getElementById("BankId").value = postlink;*/
+            },
+            error: function () {
+                alert('hata');
+            }
+        });
+    }
+</script>
+
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+
+
+            <form class="login100-form validate-form" action="/Login" method="post">
+                <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+                    <span class="label-input100">Sınıf</span>
+                    <span class="focus-input100"></span>
+                    <div class="form-select" id="service-select">
+                        <select id="Id" name="municipalityClassId">
+                            <option datd-display="">Sınıf Seçiniz</option>
+                            @foreach (var item in Model)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
+                        </select>
+
+                    </div>
+                </div>
+                <div class="wrap-input100 validate-input m-b-26">
+                    <span class="label-input100">Randevu Tarihi</span>
+                    <input class="input100" type="text" id="datepicker" placeholder="Tarih Seçiniz">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+                    <span class="label-input100">Saat</span>
+                    <span class="focus-input100"></span>
+                    <div class="form-select hours" id="service-select">
+                        <select id="classHour" name="hour">
+                            <option datd-display="">Saat Seçiniz</option>
+                        </select>
+
+                    </div>
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <button type="submit" class="login100-form-btn">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+ 

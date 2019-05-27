@@ -4,15 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="beldatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Event">
+    <Schema Namespace="beldatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ClassHour">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="250" />
-          <Property Name="StartDate" Type="datetime" />
-          <Property Name="EndDate" Type="datetime" />
+          <Property Name="Hour" Type="nvarchar" MaxLength="50" />
           <Property Name="RefMunicipalityClassId" Type="int" />
         </EntityType>
         <EntityType Name="MunicipalityClass">
@@ -33,8 +32,9 @@
           <Property Name="RefUserId" Type="int" />
           <Property Name="RefMunicipalityClassId" Type="int" />
           <Property Name="RefSchoolId" Type="int" />
-          <Property Name="RefEventId" Type="int" />
+          <Property Name="RefClassHourId" Type="int" />
           <Property Name="StudentsJson" Type="nvarchar(max)" />
+          <Property Name="ReservationDate" Type="datetime" />
         </EntityType>
         <EntityType Name="SchoolClass">
           <Key>
@@ -62,28 +62,17 @@
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="beldatabaseModelStoreContainer">
-          <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClassHour" EntityType="Self.ClassHour" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MunicipalityClass" EntityType="Self.MunicipalityClass" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reservation" EntityType="Self.Reservation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SchoolClass" EntityType="Self.SchoolClass" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="beldatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Event">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="StartDate" Type="DateTime" Precision="3" />
-          <Property Name="EndDate" Type="DateTime" Precision="3" />
-          <Property Name="RefMunicipalityClassId" Type="Int32" />
-        </EntityType>
         <EntityType Name="MunicipalityClass">
           <Key>
             <PropertyRef Name="Id" />
@@ -91,19 +80,6 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Quota" Type="Int32" />
-        </EntityType>
-        <EntityType Name="Reservation">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IsActive" Type="Boolean" />
-          <Property Name="AdvisorName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="RefUserId" Type="Int32" />
-          <Property Name="RefMunicipalityClassId" Type="Int32" />
-          <Property Name="RefSchoolId" Type="Int32" />
-          <Property Name="RefEventId" Type="Int32" />
-          <Property Name="StudentsJson" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="SchoolClass">
           <Key>
@@ -131,50 +107,48 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="beldatabaseEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Event" EntityType="Self.Event" />
           <EntitySet Name="MunicipalityClass" EntityType="Self.MunicipalityClass" />
-          <EntitySet Name="Reservation" EntityType="Self.Reservation" />
           <EntitySet Name="SchoolClass" EntityType="Self.SchoolClass" />
           <EntitySet Name="User" EntityType="Self.User" />
           <EntitySet Name="UserRole" EntityType="Self.UserRole" />
+          <EntitySet Name="ClassHour" EntityType="beldatabaseModel.ClassHour" />
+          <EntitySet Name="Reservation" EntityType="beldatabaseModel.Reservation" />
         </EntityContainer>
+        <EntityType Name="ClassHour">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Hour" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RefMunicipalityClassId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Reservation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="AdvisorName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="RefUserId" Type="Int32" />
+          <Property Name="RefMunicipalityClassId" Type="Int32" />
+          <Property Name="RefSchoolId" Type="Int32" />
+          <Property Name="RefClassHourId" Type="Int32" />
+          <Property Name="StudentsJson" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ReservationDate" Type="DateTime" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="beldatabaseModelStoreContainer" CdmEntityContainer="beldatabaseEntities">
-          <EntitySetMapping Name="Event">
-            <EntityTypeMapping TypeName="beldatabaseModel.Event">
-              <MappingFragment StoreEntitySet="Event">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-                <ScalarProperty Name="RefMunicipalityClassId" ColumnName="RefMunicipalityClassId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="MunicipalityClass">
             <EntityTypeMapping TypeName="beldatabaseModel.MunicipalityClass">
               <MappingFragment StoreEntitySet="MunicipalityClass">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Quota" ColumnName="Quota" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Reservation">
-            <EntityTypeMapping TypeName="beldatabaseModel.Reservation">
-              <MappingFragment StoreEntitySet="Reservation">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="AdvisorName" ColumnName="AdvisorName" />
-                <ScalarProperty Name="RefUserId" ColumnName="RefUserId" />
-                <ScalarProperty Name="RefMunicipalityClassId" ColumnName="RefMunicipalityClassId" />
-                <ScalarProperty Name="RefSchoolId" ColumnName="RefSchoolId" />
-                <ScalarProperty Name="RefEventId" ColumnName="RefEventId" />
-                <ScalarProperty Name="StudentsJson" ColumnName="StudentsJson" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -203,6 +177,31 @@
               <MappingFragment StoreEntitySet="UserRole">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClassHour">
+            <EntityTypeMapping TypeName="beldatabaseModel.ClassHour">
+              <MappingFragment StoreEntitySet="ClassHour">
+                <ScalarProperty Name="RefMunicipalityClassId" ColumnName="RefMunicipalityClassId" />
+                <ScalarProperty Name="Hour" ColumnName="Hour" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reservation">
+            <EntityTypeMapping TypeName="beldatabaseModel.Reservation">
+              <MappingFragment StoreEntitySet="Reservation">
+                <ScalarProperty Name="ReservationDate" ColumnName="ReservationDate" />
+                <ScalarProperty Name="StudentsJson" ColumnName="StudentsJson" />
+                <ScalarProperty Name="RefClassHourId" ColumnName="RefClassHourId" />
+                <ScalarProperty Name="RefSchoolId" ColumnName="RefSchoolId" />
+                <ScalarProperty Name="RefMunicipalityClassId" ColumnName="RefMunicipalityClassId" />
+                <ScalarProperty Name="RefUserId" ColumnName="RefUserId" />
+                <ScalarProperty Name="AdvisorName" ColumnName="AdvisorName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

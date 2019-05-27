@@ -20,7 +20,8 @@ namespace Bel.DataLayer
         public Nullable<int> RefUserId { get; set; }
         public Nullable<int> RefMunicipalityClassId { get; set; }
         public Nullable<int> RefSchoolId { get; set; }
-        public Nullable<int> RefEventId { get; set; }
+        public Nullable<int> RefClassHourId { get; set; }
         public string StudentsJson { get; set; }
+        public Nullable<System.DateTime> ReservationDate { get; set; }
     }
 }
