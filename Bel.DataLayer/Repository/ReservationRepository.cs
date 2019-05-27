@@ -27,7 +27,7 @@ namespace Bel.DataLayer.Repository
                             , RefMunicipalityClassId = r.RefMunicipalityClassId.Value
                             , MunicipalityClassName = mc.Name
                             , RefSchoolId = r.RefSchoolId.Value
-                            , SchoolName = sc.Name
+                            , SchoolClassName = sc.Name
                             , RefClassHourId = r.RefClassHourId.Value
                             , Hour = ch.Hour};
             var a =   query.ToList();
