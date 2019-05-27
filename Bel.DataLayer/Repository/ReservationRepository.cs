@@ -17,12 +17,20 @@ namespace Bel.DataLayer.Repository
                         join mc in beldatabaseEntities.MunicipalityClass on r.RefMunicipalityClassId equals mc.Id
                         join sc in beldatabaseEntities.SchoolClass on r.RefSchoolId equals sc.Id
                         join ch in beldatabaseEntities.ClassHour on r.RefClassHourId equals ch.Id
-                        select new { r.Id,r.IsActive,r.AdvisorName,r.ReservationDate
-                        , r.RefUserId, UserName = u.Name 
-                        , r.RefMunicipalityClassId, MunicipalityClassName = mc.Name
-                        , r.RefSchoolId,SchoolName = sc.Name
-                        , r.RefClassHourId, ch.Hour};
-            var a =   query.ToList().Cast<ReservationModel>().ToList();
+                        select new ReservationModel {
+                            Id = r.Id
+                            , IsActive = r.IsActive.Value
+                            , AdvisorName = r.AdvisorName
+                            , ReservationDate =  r.ReservationDate
+                            , RefUserId = r.RefUserId.Value
+                            , UserName = u.Name 
+                            , RefMunicipalityClassId = r.RefMunicipalityClassId.Value
+                            , MunicipalityClassName = mc.Name
+                            , RefSchoolId = r.RefSchoolId.Value
+                            , SchoolName = sc.Name
+                            , RefClassHourId = r.RefClassHourId.Value
+                            , Hour = ch.Hour};
+            var a =   query.ToList();
             return a;
         }
     }
