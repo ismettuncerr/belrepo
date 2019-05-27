@@ -19,7 +19,8 @@ namespace Bel.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
-            return View();
+            var reservations = new ReservationViewModel();
+            return View(reservations);
         }
         [Authorize(Roles = "Guest")]
         public ActionResult Appointment()

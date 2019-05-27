@@ -69,6 +69,7 @@
       <DependentUpon>bel.tt</DependentUpon>
     </Compile>
     <Compile Include="Interface\IGenericRepository.cs" />
+    <Compile Include="Model\ReservationModel.cs" />
     <Compile Include="MunicipalityClass.cs">
       <DependentUpon>bel.tt</DependentUpon>
     </Compile>

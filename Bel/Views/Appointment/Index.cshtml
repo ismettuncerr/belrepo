@@ -1,4 +1,4 @@
-﻿
+﻿@model Bel.Models.ReservationViewModel
 @{
     ViewBag.Title = "Appointment";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,31 +9,31 @@
         <table class="table table-hover" style="cursor:pointer">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <td>Id</td>
+                    <td>IsActive</td>
+                    <td>AdvisorName</td>
+                    <td>ReservationDate</td>
+                    <td>UserName</td>
+                    <td>MunicipalityClassName</td>
+                    <td>SchoolName</td>
+                    <td>Hour</td>
                 </tr>
             </thead>
             <tbody>
+                @foreach (var item in Model.Reservations)
+                {
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>mdo</td>
+                    <td>@item.Id</td>
+                    <td>@item.IsActive</td>
+                    <td>@item.AdvisorName</td>
+                    <td>@item.ReservationDate</td>
+                    <td>@item.UserName</td>
+                    <td>@item.MunicipalityClassName</td>
+                    <td>@item.SchoolName</td>
+                    <td>@item.Hour</td>
+                    <td>@Html.ActionLink("Detail", "DetailReservation", new { id = item.Id }, new { @class = "btn btn-warning" })</td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>Bird</td>
-                    <td>twitter</td>
-                </tr>
+                }
             </tbody>
         </table>
     </div>
