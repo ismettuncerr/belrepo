@@ -84,12 +84,12 @@
         <div class="wrap-login100">
 
 
-            <form class="login100-form validate-form" action="/Login" method="post">
+            <form class="login100-form validate-form" action="/Appointment/GetAppointment" method="post" enctype="multipart/form-data">
                 <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
                     <span class="label-input100">Sınıf</span>
                     <span class="focus-input100"></span>
                     <div class="form-select" id="service-select">
-                        <select id="Id" name="municipalityClassId">
+                        <select id="Id" name="municipalityClassId" required>
                             <option datd-display="">Sınıf Seçiniz</option>
                             @foreach (var item in Model)
                             {
@@ -101,23 +101,34 @@
                 </div>
                 <div class="wrap-input100 validate-input m-b-26">
                     <span class="label-input100">Randevu Tarihi</span>
-                    <input class="input100" type="text" id="datepicker" placeholder="Tarih Seçiniz">
+                    <input class="input100" type="text" id="datepicker" name="datepicker" placeholder="Tarih Seçiniz" required>
                     <span class="focus-input100"></span>
                 </div>
 
-                <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+                <div class="wrap-input100 validate-input m-b-26">
                     <span class="label-input100">Saat</span>
                     <span class="focus-input100"></span>
                     <div class="form-select hours" id="service-select">
-                        <select id="classHour" name="hour">
+                        <select id="classHour" name="hour" required>
                             <option datd-display="">Saat Seçiniz</option>
                         </select>
 
                     </div>
                 </div>
+                <div class="wrap-input100 validate-input m-b-18">
+                    <span class="label-input100">Danışman</span>
+                    <input class="input100" type="text" name="consultant" placeholder="Danışman İsmi" required>
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+                    <span class="label-input100">Danışman</span>
+                    <input class="input100" type="file" name="studentList" required>
+                    <span class="focus-input100"></span>
+                </div>
 
                 <div class="container-login100-form-btn">
-                    <button type="submit" class="login100-form-btn">Login</button>
+                    <button type="submit" class="login100-form-btn">Randevu Al</button>
                 </div>
             </form>
         </div>
