@@ -16,7 +16,7 @@ namespace Bel.DataLayer.Model
         public string UserName { get; set; }
         public int RefMunicipalityClassId { get; set; }
         public string MunicipalityClassName { get; set; }
-        public int RefSchoolId { get; set; }
+        public int RefSchoolId { get; set; }		
         public string SchoolClassName { get; set; }
         public int RefClassHourId { get; set; }
         public string Hour { get; set; }
