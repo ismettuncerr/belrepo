@@ -91,7 +91,7 @@
                     <div class="form-select" id="service-select">
                         <select id="Id" name="municipalityClassId" required>
                             <option datd-display="">Sınıf Seçiniz</option>
-                            @foreach (var item in Model)
+                            @foreach (var item in Model.municipalities)
                             {
                                 <option value="@item.Id">@item.Name</option>
                             }
@@ -103,6 +103,21 @@
                     <span class="label-input100">Randevu Tarihi</span>
                     <input class="input100" type="text" id="datepicker" name="datepicker" placeholder="Tarih Seçiniz" required>
                     <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+                    <span class="label-input100">Sınıf Seçiniz</span>
+                    <span class="focus-input100"></span>
+                    <div class="form-select" id="service-select">
+                        <select id="Id" name="schoolClassId" required>
+                            <option datd-display="">Okulunuzdaki Sınıfı Seçiniz</option>
+                            @foreach (var item in Model.schoolClasses)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
+                        </select>
+
+                    </div>
                 </div>
 
                 <div class="wrap-input100 validate-input m-b-26">
@@ -125,6 +140,15 @@
                     <span class="label-input100">Danışman</span>
                     <input class="input100" type="file" name="studentList" required>
                     <span class="focus-input100"></span>
+                </div>
+
+                <div class="flex-sb-m w-full p-b-30">
+
+                    <div>
+                        <div class="txt1" style="color:#ff0000; font-size:15px">
+                            @ViewBag.Message
+                        </div>
+                    </div>
                 </div>
 
                 <div class="container-login100-form-btn">

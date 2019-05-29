@@ -1,20 +1,15 @@
 ﻿using Bel.DataLayer;
-using Bel.DataLayer.Repository;
+using Bel.DataLayer.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
 
 namespace Bel.Models
 {
     public class AppointmentViewModel
     {
-        public int municipalityClassId { get; set; }
-        public string datepicker { get; set; }
-        public string hour { get; set; }
-        public string consultant { get; set; }
-        public HttpPostedFileBase studentList { get; set; }
-
+        public List<MunicipalityClass> municipalities { get; set; }
+        public List<SchoolClassModel> schoolClasses { get; set; }
     }
 }

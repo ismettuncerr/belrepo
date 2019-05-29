@@ -1,4 +1,5 @@
 ﻿using Bel.DataLayer;
+using Bel.DataLayer.Model;
 using Bel.DataLayer.Repository;
 using Bel.Models;
 using System;
@@ -15,7 +16,19 @@ namespace Bel.Controllers
     {
         // GET: Randevu
         MunicipalityClassRepository municipalityClassRepository = new MunicipalityClassRepository();
+        SchoolClassRepository schoolClassRepository = new SchoolClassRepository();
         ClassHourRepository classHourRepository = new ClassHourRepository();
+        AppointmentViewModel appointmentViewModel = new AppointmentViewModel();
+        ReservationRepository reservationRepository = new ReservationRepository();
+
+        
+
+        public FormsAuthenticationTicket ticket()
+        {
+            HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+            return FormsAuthentication.Decrypt(authCookie.Value);
+        }
+
 
         [Authorize(Roles = "Admin")]
         public ActionResult Index()
@@ -26,18 +39,41 @@ namespace Bel.Controllers
         [Authorize(Roles = "Guest")]
         public ActionResult Appointment()
         {
-            return View(userList());
+            
+            appointmentViewModel.municipalities = userList();
+            appointmentViewModel.schoolClasses = schoolClass(Convert.ToInt32(ticket().Name));
+            if (TempData["shortMessage"]!=null)
+            {
+                ViewBag.Message = TempData["shortMessage"].ToString();
+            }
+            return View(appointmentViewModel);
         }
-        [HttpPost]
+
+        public ActionResult ActiveAppointment()
+        {
+            var activeReservations = new GuestActiveReservationViewModel(Convert.ToInt32(ticket().Name));
+            return View(activeReservations);
+        }
+        public ActionResult PastAppointment()
+        {
+            var pastReservations = new GuestPastReservationViewModel(Convert.ToInt32(ticket().Name));
+            return View(pastReservations);
+        }
+
+        /*[HttpPost]
         public ActionResult Appointment(FormCollection collection)
         {
             AppointmentViewModel appointmentViewModel = new AppointmentViewModel();
             DateTime? date = string.IsNullOrEmpty(collection["Date"]) ? default(DateTime?) : DateTime.Parse(collection["Date"]);
             return View(appointmentViewModel);
-        }
+        }*/
         public List<MunicipalityClass> userList()
         {
             return municipalityClassRepository.GetAll().ToList();
+        }
+        public List<SchoolClassModel> schoolClass(int refUserId)
+        {
+            return schoolClassRepository.GetSchoolClass(refUserId).ToList();
         }
 
         [HttpPost]
@@ -52,15 +88,13 @@ namespace Bel.Controllers
             return json;
         }
         [HttpPost]
-        public ActionResult GetAppointment(AppointmentViewModel appointmentViewModel)
+        public ActionResult GetAppointment(ReservationCustomViewModel reservationCustomViewModel)
         {
-            HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
-            FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authCookie.Value);
             string studentJson = "";
-            if (appointmentViewModel.studentList.FileName.EndsWith("xls") || appointmentViewModel.studentList.FileName.EndsWith("xlsx") || appointmentViewModel.studentList.FileName.EndsWith("XLS") || appointmentViewModel.studentList.FileName.EndsWith("XLSX"))
+            if (reservationCustomViewModel.studentList.FileName.EndsWith("xls") || reservationCustomViewModel.studentList.FileName.EndsWith("xlsx") || reservationCustomViewModel.studentList.FileName.EndsWith("XLS") || reservationCustomViewModel.studentList.FileName.EndsWith("XLSX"))
             {
                 //Seçilen dosyanın nereye kaydedileceği belirtiliyor.
-                string path = Server.MapPath("~/Content/" + appointmentViewModel.studentList.FileName);
+                string path = Server.MapPath("~/Content/" + reservationCustomViewModel.studentList.FileName);
 
                 //Dosya kontrol edilir, varsa silinir.
                 if (System.IO.File.Exists(path))
@@ -69,7 +103,7 @@ namespace Bel.Controllers
                 }
 
                 //Excel path altına kaydedilir.
-                appointmentViewModel.studentList.SaveAs(path);
+                reservationCustomViewModel.studentList.SaveAs(path);
 
                 //+Exceli açıyoruz
                 Microsoft.Office.Interop.Excel.Application application = new Microsoft.Office.Interop.Excel.Application();
@@ -103,24 +137,17 @@ namespace Bel.Controllers
                 var jsonSerialiser = new JavaScriptSerializer();
                 studentJson = jsonSerialiser.Serialize(localList);
                 application.Quit();
-                //listeyi bu sayfaya taşımak için bu viewBag içine alıyorum.
             }
             Reservation reservation = new Reservation();
-            reservation.AdvisorName = appointmentViewModel.consultant;
+            reservation.AdvisorName = reservationCustomViewModel.consultant;
             reservation.IsActive = true;
-            reservation.RefClassHourId = Convert.ToInt32(appointmentViewModel.hour);
-            reservation.RefMunicipalityClassId = Convert.ToInt32(appointmentViewModel.municipalityClassId);
+            reservation.RefClassHourId = Convert.ToInt32(reservationCustomViewModel.hour);
+            reservation.RefMunicipalityClassId = Convert.ToInt32(reservationCustomViewModel.municipalityClassId);
             reservation.StudentsJson = studentJson;
-            reservation.RefUserId = Convert.ToInt32(ticket.Name);
-            reservation.RefSchoolId = Convert.ToInt32(ticket.Name);
-            reservation.ReservationDate = new DateTime();
-            reservation.ReservationDate = DateTime.Parse(appointmentViewModel.datepicker);
-            ReservationRepository reservationRepository = new ReservationRepository();
-            reservationRepository.Add(reservation);
-            reservationRepository.Save();
-
-
-            //listele viewına döndürüyorum.
+            reservation.RefUserId = Convert.ToInt32(ticket().Name);
+            reservation.RefSchoolId = reservationCustomViewModel.schoolClassId;
+            reservation.ReservationDate = DateTime.Parse(reservationCustomViewModel.datepicker);            
+            TempData["shortMessage"] = reservationRepository.saveReservation(reservation);
             return RedirectToAction("Appointment", "Appointment");
 
         }

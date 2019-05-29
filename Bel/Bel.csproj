@@ -208,6 +208,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AppointmentViewModel.cs" />
+    <Compile Include="Models\GuestActiveReservationViewModel.cs" />
+    <Compile Include="Models\GuestPastReservationViewModel.cs" />
+    <Compile Include="Models\ReservationCustomViewModel.cs" />
     <Compile Include="Models\ReservationViewModel.cs" />
     <Compile Include="Models\StudentListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -402,6 +405,7 @@
     <Content Include="img\gallery\g5.jpg" />
     <Content Include="img\gallery\g6.jpg" />
     <Content Include="img\gallery\g7.jpg" />
+    <Content Include="img\iletisimbanner-481.jpg" />
     <Content Include="img\logo.png" />
     <Content Include="img\m-img.jpg" />
     <Content Include="img\p1.jpg" />
@@ -531,6 +535,8 @@
     <Content Include="Views\Appointment\Index.cshtml" />
     <Content Include="Views\Login\Appointment.cshtml" />
     <Content Include="Views\Appointment\Appointment.cshtml" />
+    <Content Include="Views\Appointment\ActiveAppointment.cshtml" />
+    <Content Include="Views\Appointment\PastAppointment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
