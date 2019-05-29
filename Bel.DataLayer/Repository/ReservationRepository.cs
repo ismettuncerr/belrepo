@@ -37,7 +37,7 @@ namespace Bel.DataLayer.Repository
                             ,
                             RefSchoolId = r.RefSchoolId.Value
                             ,
-                            SchoolName = sc.Name
+                            SchoolClassName = sc.Name
                             ,
                             RefClassHourId = r.RefClassHourId.Value
                             ,
@@ -75,7 +75,7 @@ namespace Bel.DataLayer.Repository
                             ,
                             RefSchoolId = r.RefSchoolId.Value
                             ,
-                            SchoolName = sc.Name
+                            SchoolClassName = sc.Name
                             ,
                             RefClassHourId = r.RefClassHourId.Value
                             ,
@@ -113,7 +113,7 @@ namespace Bel.DataLayer.Repository
                             ,
                             RefSchoolId = r.RefSchoolId.Value
                             ,
-                            SchoolName = sc.Name
+                            SchoolClassName = sc.Name
                             ,
                             RefClassHourId = r.RefClassHourId.Value
                             ,
