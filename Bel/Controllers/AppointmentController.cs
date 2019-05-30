@@ -49,6 +49,12 @@ namespace Bel.Controllers
             return View(appointmentViewModel);
         }
 
+        public ActionResult DeleteReservation(int id)
+        {
+            var result = reservationRepository.DeleteReservation(id);
+            return RedirectToAction("Index");
+        }
+
         public ActionResult ActiveAppointment()
         {
             var activeReservations = new GuestActiveReservationViewModel(Convert.ToInt32(ticket().Name));

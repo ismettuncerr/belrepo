@@ -162,5 +162,18 @@ namespace Bel.DataLayer.Repository
             reservationRepository.Save();
             return "Kayıt Başarılı";
         }
+
+        public string DeleteReservation(int id)
+        {
+            var entity = Get(id);
+            if (entity is null)
+                return "Kayıt Bulunamadı!";
+            else
+            {
+                entity.IsActive = false;
+                Save();
+                return "Kayıt Silindi!";
+            }
+        }
     }
 }

@@ -604,6 +604,13 @@
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 <head>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
     <!-- Mobile Specific Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon-->
@@ -646,6 +653,11 @@
     <link rel="stylesheet" type="text/css" href="~/Content/vendor/daterangepicker/daterangepicker.css">
     <link rel="stylesheet" type="text/css" href="~/Content/css/util.css">
     <link rel="stylesheet" type="text/css" href="~/Content/css/main.css">
+
+    <script src="~/Scripts/vendor/jquery-2.2.4.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+
 </head>
 <body>
     <header id="header" id="home">
@@ -822,7 +834,6 @@
     </footer>
     <!-- End footer Area -->
 
-    <script src="~/Scripts/vendor/jquery-2.2.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="~/Scripts/vendor/bootstrap.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
@@ -837,6 +848,5 @@
     <script src="~/Scripts/mail-script.js"></script>
     <script src="~/Scripts/main.js"></script>
     <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
-    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
 </body>
 </html>
