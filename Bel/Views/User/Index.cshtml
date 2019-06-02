@@ -21,12 +21,24 @@
             </section>
             <section class="popular-course-area section-gap no-padding">
                 <div class="container">
+
+                    @using (Html.BeginForm())
+                    {
+                        <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+                            <span class="label-input1000">Arama : </span> @Html.TextBox("SearchString")
+                            <input class="input1000" type="submit" value="Filtrele">
+                            <span class="focus-input1000"></span>
+                        </div>
+                    }
+
+
                     <table class="table table-hover" style="cursor:pointer" id="tbldata">
                         <thead>
                             <tr>
                                 <td>Name</td>
                                 <td>EMail</td>
                                 <td>Password</td>
+                                <td>Düzenle</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -36,6 +48,7 @@
                                     <td>@item.Name</td>
                                     <td>@item.EMail</td>
                                     <td>@item.Password</td>
+                                    <td>@Html.ActionLink("Düzenle", "EditUser", new { id = item.Id }, new { @class = "btn btn-warning" })</td>
                                 </tr>
                             }
                         </tbody>

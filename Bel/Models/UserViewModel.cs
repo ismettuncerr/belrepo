@@ -12,6 +12,7 @@ namespace Bel.Models
     {
         UserRepository userRepository = new UserRepository();
         public List<User> Users { get; set; }
+        public User User { get; set; }
 
         public UserViewModel()
         {

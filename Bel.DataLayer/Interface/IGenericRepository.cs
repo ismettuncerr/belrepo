@@ -12,7 +12,7 @@ namespace Bel.DataLayer.Interface
         IEnumerable<T> GetAll();
         void Add(T entity);
         void Delete(int id);
-        void Edit(T entity);
+        //void Edit(T entity);
         void Save();
         T Get(int id);
     }
