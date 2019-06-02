@@ -203,13 +203,15 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Models\AppointmentViewModel.cs" />
-    <Compile Include="Models\GuestActiveReservationViewModel.cs" />
-    <Compile Include="Models\GuestPastReservationViewModel.cs" />
+    <Compile Include="Models\ActiveReservationViewModel.cs" />
+    <Compile Include="Models\PastReservationViewModel.cs" />
     <Compile Include="Models\ReservationCustomViewModel.cs" />
     <Compile Include="Models\ReservationViewModel.cs" />
     <Compile Include="Models\StudentListViewModel.cs" />
@@ -539,6 +541,9 @@
     <Content Include="Views\Appointment\Appointment.cshtml" />
     <Content Include="Views\Appointment\ActiveAppointment.cshtml" />
     <Content Include="Views\Appointment\PastAppointment.cshtml" />
+    <Content Include="Views\Appointment\ActiveReservationForAdmin.cshtml" />
+    <Content Include="Views\Appointment\PastReservationForAdmin.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -7,16 +7,15 @@ using System.Web;
 
 namespace Bel.Models
 {
-    
-    public class GuestActiveReservationViewModel
+    public class PastReservationViewModel
     {
         ReservationRepository reservationRepository = new ReservationRepository();
         public List<ReservationModel> Reservations { get; set; }
 
-        public GuestActiveReservationViewModel(int refUserId)
+        public PastReservationViewModel(int? refUserId = null)
         {
             Reservations = new List<ReservationModel>();
-            Reservations = reservationRepository.GetGuestActiveReservations(refUserId);
+            Reservations = reservationRepository.GetPastReservations(refUserId);
         }
     }
 }
