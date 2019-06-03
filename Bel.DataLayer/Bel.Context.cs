@@ -31,5 +31,7 @@ namespace Bel.DataLayer
         public virtual DbSet<UserRole> UserRole { get; set; }
         public virtual DbSet<ClassHour> ClassHour { get; set; }
         public virtual DbSet<Reservation> Reservation { get; set; }
+        public virtual DbSet<Gallery> Gallery { get; set; }
+        public virtual DbSet<News> News { get; set; }
     }
 }

@@ -14,6 +14,14 @@
           <Property Name="Hour" Type="nvarchar" MaxLength="50" />
           <Property Name="RefMunicipalityClassId" Type="int" />
         </EntityType>
+        <EntityType Name="Gallery">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PhotoName" Type="nvarchar" MaxLength="750" />
+          <Property Name="PhotoUrl" Type="nvarchar" MaxLength="4000" />
+        </EntityType>
         <EntityType Name="MunicipalityClass">
           <Key>
             <PropertyRef Name="Id" />
@@ -21,6 +29,17 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Quota" Type="int" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NewsHeadline" Type="nvarchar" MaxLength="350" />
+          <Property Name="NewsImage" Type="nvarchar" MaxLength="4000" />
+          <Property Name="NewsBrief" Type="nvarchar(max)" />
+          <Property Name="NewsContent" Type="nvarchar(max)" />
+          <Property Name="NewsDate" Type="datetime" />
         </EntityType>
         <EntityType Name="Reservation">
           <Key>
@@ -63,7 +82,9 @@
         </EntityType>
         <EntityContainer Name="beldatabaseModelStoreContainer">
           <EntitySet Name="ClassHour" EntityType="Self.ClassHour" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gallery" EntityType="Self.Gallery" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MunicipalityClass" EntityType="Self.MunicipalityClass" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reservation" EntityType="Self.Reservation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SchoolClass" EntityType="Self.SchoolClass" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
@@ -113,6 +134,8 @@
           <EntitySet Name="UserRole" EntityType="Self.UserRole" />
           <EntitySet Name="ClassHour" EntityType="beldatabaseModel.ClassHour" />
           <EntitySet Name="Reservation" EntityType="beldatabaseModel.Reservation" />
+          <EntitySet Name="Gallery" EntityType="beldatabaseModel.Gallery" />
+          <EntitySet Name="News" EntityType="beldatabaseModel.News" />
         </EntityContainer>
         <EntityType Name="ClassHour">
           <Key>
@@ -136,6 +159,25 @@
           <Property Name="RefClassHourId" Type="Int32" />
           <Property Name="StudentsJson" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ReservationDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Gallery">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PhotoName" Type="String" MaxLength="750" FixedLength="false" Unicode="true" />
+          <Property Name="PhotoUrl" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NewsHeadline" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="NewsImage" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="NewsBrief" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NewsContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NewsDate" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -201,6 +243,27 @@
                 <ScalarProperty Name="RefUserId" ColumnName="RefUserId" />
                 <ScalarProperty Name="AdvisorName" ColumnName="AdvisorName" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gallery">
+            <EntityTypeMapping TypeName="beldatabaseModel.Gallery">
+              <MappingFragment StoreEntitySet="Gallery">
+                <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+                <ScalarProperty Name="PhotoName" ColumnName="PhotoName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="beldatabaseModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="NewsDate" ColumnName="NewsDate" />
+                <ScalarProperty Name="NewsContent" ColumnName="NewsContent" />
+                <ScalarProperty Name="NewsBrief" ColumnName="NewsBrief" />
+                <ScalarProperty Name="NewsImage" ColumnName="NewsImage" />
+                <ScalarProperty Name="NewsHeadline" ColumnName="NewsHeadline" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

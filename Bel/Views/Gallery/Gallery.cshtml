@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("jquery-2.2.4.min");
+<section class="banner-area relative about-banner" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white">
+                    Galeri
+                </h1>
+
+            </div>
+        </div>
+    </div>
+</section>
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100" style="width:80%">
+            <section class="popular-course-area section-gap no-padding">
+                <div class="container">
+
+                    <div>
+                        <a href="/Gallery/GalleryCreate" style="width:40%" class="login100-form-btn">Yeni Resim Ekle</a>
+                    </div>
+                    </br>
+                    <table class="table table-hover" style="cursor:pointer">
+                        <thead>
+                            <tr>
+                                <td>Fotoğraf</td>
+                                <td>Sil</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Galleries)
+                            {
+                                <tr>
+                                    <td><img src="~/Content/gallery/@item.PhotoName" height="50" /></td>
+                                    <td><input class="btn btn-danger btnSubmit" type="submit" value="Sil" /></td>
+                                    <!--<td>@Html.ActionLink("Detail", "DetailReservation", new { id = item.Id }, new { @class = "btn btn-danger" })</td>-->
+                                </tr>
+
+
+                                            }
+                        </tbody>
+                    </table>
+                </div>
+                </section>
+            </div>
+    </div>
+</div>
+
+

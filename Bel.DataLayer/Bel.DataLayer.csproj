@@ -72,15 +72,23 @@
     <Compile Include="ClassHour.cs">
       <DependentUpon>bel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Gallery.cs">
+      <DependentUpon>bel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Interface\IGenericRepository.cs" />
     <Compile Include="Model\ReservationModel.cs" />
     <Compile Include="Model\SchoolClassModel.cs" />
     <Compile Include="MunicipalityClass.cs">
       <DependentUpon>bel.tt</DependentUpon>
     </Compile>
+    <Compile Include="News.cs">
+      <DependentUpon>bel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Repository\ClassHourRepository.cs" />
+    <Compile Include="Repository\GalleryRepository.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
     <Compile Include="Repository\MunicipalityClassRepository.cs" />
+    <Compile Include="Repository\NewsRepository.cs" />
     <Compile Include="Repository\ReservationRepository.cs" />
     <Compile Include="Repository\SchoolClassRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />

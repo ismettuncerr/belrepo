@@ -200,17 +200,22 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AppointmentViewModel.cs" />
+    <Compile Include="Models\NewsViewModel.cs" />
     <Compile Include="Models\GuestActiveReservationViewModel.cs" />
     <Compile Include="Models\GuestPastReservationViewModel.cs" />
+    <Compile Include="Models\NewsCustomViewModel.cs" />
     <Compile Include="Models\ReservationCustomViewModel.cs" />
+    <Compile Include="Models\GalleryViewModel.cs" />
     <Compile Include="Models\ReservationViewModel.cs" />
     <Compile Include="Models\StudentListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -232,6 +237,65 @@
     <Content Include="Content\main.css" />
     <Content Include="Content\nice-select.css" />
     <Content Include="Content\owl.carousel.css" />
+    <Content Include="Content\summernote\bootstrap.css" />
+    <Content Include="Content\summernote\bootstrap.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-ar-AR.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-bg-BG.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-ca-ES.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-cs-CZ.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-da-DK.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-de-DE.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-el-GR.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-es-ES.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-es-EU.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-fa-IR.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-fi-FI.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-fr-FR.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-gl-ES.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-he-IL.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-hr-HR.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-hu-HU.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-id-ID.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-it-IT.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-ja-JP.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-ko-KR.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-lt-LT.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-lt-LV.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-mn-MN.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-nb-NO.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-nl-NL.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-pl-PL.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-pt-BR.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-pt-PT.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-ro-RO.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-ru-RU.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-sk-SK.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-sl-SI.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-sr-RS-Latin.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-sr-RS.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-sv-SE.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-ta-IN.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-th-TH.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-tr-TR.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-uk-UA.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-uz-UZ.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-vi-VN.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-zh-CN.js" />
+    <Content Include="Content\summernote\dist\lang\summernote-zh-TW.js" />
+    <Content Include="Content\summernote\dist\plugin\databasic\summernote-ext-databasic.css" />
+    <Content Include="Content\summernote\dist\plugin\databasic\summernote-ext-databasic.js" />
+    <Content Include="Content\summernote\dist\plugin\hello\summernote-ext-hello.js" />
+    <Content Include="Content\summernote\dist\plugin\specialchars\summernote-ext-specialchars.js" />
+    <Content Include="Content\summernote\dist\summernote-bs4.css" />
+    <Content Include="Content\summernote\dist\summernote-bs4.js" />
+    <Content Include="Content\summernote\dist\summernote-bs4.min.js" />
+    <Content Include="Content\summernote\dist\summernote-lite.css" />
+    <Content Include="Content\summernote\dist\summernote-lite.js" />
+    <Content Include="Content\summernote\dist\summernote-lite.min.js" />
+    <Content Include="Content\summernote\dist\summernote.css" />
+    <Content Include="Content\summernote\dist\summernote.js" />
+    <Content Include="Content\summernote\dist\summernote.min.js" />
+    <Content Include="Content\summernote\jquery-3.2.1.min.js" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -432,6 +496,7 @@
     <Content Include="Scripts\superfish.min.js" />
     <Content Include="Scripts\vendor\bootstrap.min.js" />
     <Content Include="Scripts\vendor\jquery-2.2.4.min.js" />
+    <Content Include="Scripts\vendor\jquery-3.2.1.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -448,6 +513,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\gallery\" />
+    <Folder Include="Content\news\" />
     <Folder Include="Views\Randevu\" />
   </ItemGroup>
   <ItemGroup>
@@ -527,6 +594,9 @@
     <Content Include="Content\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Content\summernote\dist\font\summernote.eot" />
+    <Content Include="Content\summernote\dist\font\summernote.ttf" />
+    <Content Include="Content\summernote\dist\font\summernote.woff" />
     <None Include="packages.config" />
     <Content Include="Scripts\.DS_Store" />
     <Content Include="Scripts\Scripts.zip" />
@@ -537,6 +607,14 @@
     <Content Include="Views\Appointment\Appointment.cshtml" />
     <Content Include="Views\Appointment\ActiveAppointment.cshtml" />
     <Content Include="Views\Appointment\PastAppointment.cshtml" />
+    <Content Include="Views\Gallery\Gallery.cshtml" />
+    <Content Include="Views\Gallery\Index.cshtml" />
+    <Content Include="Views\Gallery\GalleryCreate.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\News\NewsDetail.cshtml" />
+    <Content Include="Views\News\News.cshtml" />
+    <Content Include="Views\Shared\jquery-2.2.4.min.cshtml" />
+    <Content Include="Views\News\NewsCreate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

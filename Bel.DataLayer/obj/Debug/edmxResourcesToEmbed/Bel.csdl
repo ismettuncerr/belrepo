@@ -40,6 +40,8 @@
     <EntitySet Name="UserRole" EntityType="Self.UserRole" />
     <EntitySet Name="ClassHour" EntityType="beldatabaseModel.ClassHour" />
     <EntitySet Name="Reservation" EntityType="beldatabaseModel.Reservation" />
+    <EntitySet Name="Gallery" EntityType="beldatabaseModel.Gallery" />
+    <EntitySet Name="News" EntityType="beldatabaseModel.News" />
   </EntityContainer>
   <EntityType Name="ClassHour">
     <Key>
@@ -63,5 +65,24 @@
     <Property Name="RefClassHourId" Type="Int32" />
     <Property Name="StudentsJson" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="ReservationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Gallery">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PhotoName" Type="String" MaxLength="750" FixedLength="false" Unicode="true" />
+    <Property Name="PhotoUrl" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NewsHeadline" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="NewsImage" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="NewsBrief" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NewsContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NewsDate" Type="DateTime" Precision="3" />
   </EntityType>
 </Schema>

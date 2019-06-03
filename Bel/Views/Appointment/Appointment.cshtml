@@ -3,6 +3,7 @@
     ViewBag.Title = "Appointment";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@Html.Partial("jquery-2.2.4.min");
 <script src="~/Scripts/vendor/jquery-2.2.4.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
@@ -57,7 +58,7 @@
                     }
                     $('.hours > .nice-select > ul').html(li);
                     $('#classHour').html(options);
-                    
+
                     console.log(options);
                 }
                 /*var postlink = "";
@@ -78,7 +79,19 @@
         });
     }
 </script>
+<section class="banner-area relative about-banner" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white">
+                    Randevu Oluştur
+                </h1>
 
+            </div>
+        </div>
+    </div>
+</section>
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
@@ -158,4 +171,4 @@
         </div>
     </div>
 </div>
- 
+

@@ -11,6 +11,8 @@
         <EntityTypeShape EntityType="beldatabaseModel.UserRole" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="beldatabaseModel.ClassHour" Width="1.5" PointX="3.375" PointY="6.75" />
         <EntityTypeShape EntityType="beldatabaseModel.Reservation" Width="1.5" PointX="0.625" PointY="0.75" />
+        <EntityTypeShape EntityType="beldatabaseModel.Gallery" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="beldatabaseModel.News" Width="1.5" PointX="5.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
