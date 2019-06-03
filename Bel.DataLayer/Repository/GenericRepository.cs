@@ -30,10 +30,10 @@ namespace Bel.DataLayer.Repository
             entities.Remove(result);
         }
 
-        public void Edit(T entity)
-        {
-            dbContext.Entry(entity).State = EntityState.Modified;
-        }
+        //public void Edit(T entity)
+        //{
+        //    dbContext.Entry(entity).State = EntityState.Modified;
+        //}
 
         public T Get(int id)
         {

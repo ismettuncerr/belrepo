@@ -2,6 +2,13 @@
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 <head>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
     <!-- Mobile Specific Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon-->
@@ -45,6 +52,13 @@
     <link rel="stylesheet" type="text/css" href="~/Content/css/util.css">
     <link rel="stylesheet" type="text/css" href="~/Content/css/main.css">
 
+
+    <script src="~/Scripts/vendor/jquery-2.2.4.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
 </head>
 <body>
     <header id="header" id="home">
@@ -85,8 +99,8 @@
                             <li class="menu-has-children">
                                 <a href="">Randevu</a>
                                 <ul>
-                                    <li><a href="/Appointment/ActiveAppointment">Aktif Randevular</a></li>
-                                    <li><a href="/Appointment/PastAppointment">Geçmiş Randevular</a></li>
+                                    <li><a href="/Appointment/ActiveAppointment">Aktif Rezervasyonlar</a></li>
+                                    <li><a href="/Appointment/PastAppointment">Geçmiş Rezervasyonlar</a></li>
                                 </ul>
                             </li>
                         }
@@ -100,6 +114,9 @@
                                     <li><a href="blog-single.html">Kullanıcı Yönetimi</a></li>
                                     <li><a href="/News/News">Haber Yönetimi</a></li>
                                     <li><a href="/Gallery/Gallery">Galeri Yönetimi</a></li>
+                                    <li><a href="/Appointment/ActiveReservationForAdmin">Aktif Rezervasyonlar</a></li>
+                                    <li><a href="/Appointment/PastReservationForAdmin">Geçmiş Rezervasyonlar</a></li>
+                                    <li><a href="/User/Index">Kullanıcı Yönetimi</a></li>
                                 </ul>
                             </li>
                         }
@@ -235,6 +252,5 @@
     <script src="~/Scripts/mail-script.js"></script>
     <script src="~/Scripts/main.js"></script>
     <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
-    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
 </body>
 </html>

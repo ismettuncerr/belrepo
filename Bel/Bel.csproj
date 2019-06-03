@@ -204,16 +204,23 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
+
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Models\AppointmentViewModel.cs" />
+
     <Compile Include="Models\NewsViewModel.cs" />
     <Compile Include="Models\GuestActiveReservationViewModel.cs" />
     <Compile Include="Models\GuestPastReservationViewModel.cs" />
     <Compile Include="Models\NewsCustomViewModel.cs" />
+
+    <Compile Include="Models\ActiveReservationViewModel.cs" />
+    <Compile Include="Models\PastReservationViewModel.cs" />
     <Compile Include="Models\ReservationCustomViewModel.cs" />
     <Compile Include="Models\GalleryViewModel.cs" />
     <Compile Include="Models\ReservationViewModel.cs" />
@@ -234,6 +241,7 @@
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\linearicons.css" />
     <Content Include="Content\magnific-popup.css" />
+    <Content Include="Content\paging.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\nice-select.css" />
     <Content Include="Content\owl.carousel.css" />
@@ -490,9 +498,15 @@
     <Content Include="Scripts\jquery.magnific-popup.min.js" />
     <Content Include="Scripts\jquery.nice-select.min.js" />
     <Content Include="Scripts\jquery.tabs.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\mail-script.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\owl.carousel.min.js" />
+    <Content Include="Scripts\paging.js" />
     <Content Include="Scripts\superfish.min.js" />
     <Content Include="Scripts\vendor\bootstrap.min.js" />
     <Content Include="Scripts\vendor\jquery-2.2.4.min.js" />
@@ -607,6 +621,7 @@
     <Content Include="Views\Appointment\Appointment.cshtml" />
     <Content Include="Views\Appointment\ActiveAppointment.cshtml" />
     <Content Include="Views\Appointment\PastAppointment.cshtml" />
+
     <Content Include="Views\Gallery\Gallery.cshtml" />
     <Content Include="Views\Gallery\Index.cshtml" />
     <Content Include="Views\Gallery\GalleryCreate.cshtml" />
@@ -615,6 +630,11 @@
     <Content Include="Views\News\News.cshtml" />
     <Content Include="Views\Shared\jquery-2.2.4.min.cshtml" />
     <Content Include="Views\News\NewsCreate.cshtml" />
+
+    <Content Include="Views\Appointment\ActiveReservationForAdmin.cshtml" />
+    <Content Include="Views\Appointment\PastReservationForAdmin.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\EditUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

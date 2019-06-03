@@ -3,6 +3,7 @@
     ViewBag.Title = "ActiveAppointment";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 @Html.Partial("jquery-2.2.4.min");
 <section class="banner-area relative about-banner" id="home">
     <div class="overlay overlay-bg"></div>
@@ -22,7 +23,7 @@
         <div class="wrap-login100" style="width:80%">
             <section class="popular-course-area section-gap no-padding">
                 <div class="container">
-                    <table class="table table-hover" style="cursor:pointer">
+                    <table class="table table-hover" style="cursor:pointer" id="tbldata">
                         <thead>
                             <tr>
                                 <td>Danışman Adı</td>
@@ -41,7 +42,7 @@
                                     <td>@item.ReservationDate</td>
                                     <td>@item.UserName</td>
                                     <td>@item.MunicipalityClassName</td>
-                                    <td>@item.SchoolName</td>
+                                    <td>@item.SchoolClassName</td>
                                     <td>@item.Hour</td>
                                 </tr>
                             }
@@ -52,4 +53,12 @@
         </div>
     </div>
 </div>
+<link href="~/Content/paging.css" rel="stylesheet" />
+<script src="~/Scripts/paging.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#tbldata').paging({ limit: 5 });
+    })
+</script>
+
 

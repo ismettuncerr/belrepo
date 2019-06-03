@@ -33,8 +33,9 @@ namespace Bel.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
-            var reservations = new ReservationViewModel();
-            return View(reservations);
+            //var reservations = new ReservationViewModel();
+            //return View(reservations);
+            return RedirectToAction("ActiveReservationForAdmin");
         }
         [Authorize(Roles = "Guest")]
         public ActionResult Appointment()
@@ -49,14 +50,30 @@ namespace Bel.Controllers
             return View(appointmentViewModel);
         }
 
+        public ActionResult DeleteReservation(int id)
+        {
+            var result = reservationRepository.DeleteReservation(id);
+            return RedirectToAction("Index");
+        }
+
         public ActionResult ActiveAppointment()
         {
-            var activeReservations = new GuestActiveReservationViewModel(Convert.ToInt32(ticket().Name));
+            var activeReservations = new ActiveReservationViewModel(Convert.ToInt32(ticket().Name));
             return View(activeReservations);
         }
         public ActionResult PastAppointment()
         {
-            var pastReservations = new GuestPastReservationViewModel(Convert.ToInt32(ticket().Name));
+            var pastReservations = new PastReservationViewModel(Convert.ToInt32(ticket().Name));
+            return View(pastReservations);
+        }
+        public ActionResult ActiveReservationForAdmin()
+        {
+            var activeReservations = new ActiveReservationViewModel();
+            return View(activeReservations);
+        }
+        public ActionResult PastReservationForAdmin()
+        {
+            var pastReservations = new PastReservationViewModel();
             return View(pastReservations);
         }
 
