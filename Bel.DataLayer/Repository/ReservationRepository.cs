@@ -81,11 +81,11 @@ namespace Bel.DataLayer.Repository
                             ,
                             Hour = ch.Hour
                         };
-            var activeRezervations = query.ToList();
+            var activeReservations = query.ToList();
             if (refUserId != null)
-                return activeRezervations.Where(x => x.RefUserId == refUserId).ToList();
+                return activeReservations.Where(x => x.RefUserId == refUserId).ToList();
             else
-                return activeRezervations;
+                return activeReservations;
         }
 
         public List<ReservationModel> GetPastReservations(int? refUserId)
@@ -122,11 +122,11 @@ namespace Bel.DataLayer.Repository
                             ,
                             Hour = ch.Hour
                         };
-            var pastRezervations = query.ToList();
+            var pastReservations = query.ToList();
             if (refUserId != null)
-                return pastRezervations.Where(x => x.RefUserId == refUserId).ToList();
+                return pastReservations.Where(x => x.RefUserId == refUserId).ToList();
             else
-                return pastRezervations;
+                return pastReservations;
         }
 
         public string saveReservation(Reservation reservation)
