@@ -1,6 +1,10 @@
 *bin/*
+*bin/
+*/bin/
 *publish/
 *obj/*
+*obj/
+*/obj/
 *.user
 *.suo
 *applicationhost.config
