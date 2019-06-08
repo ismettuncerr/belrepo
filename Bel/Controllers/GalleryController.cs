@@ -16,7 +16,7 @@ namespace Bel.Controllers
         // GET: Gallery
         GalleryRepository galleryRepository = new GalleryRepository();
 
-
+        [AllowAnonymous]
         public ActionResult Index()
         {
             var galleries = new GalleryViewModel();

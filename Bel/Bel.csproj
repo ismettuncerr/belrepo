@@ -204,8 +204,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
-
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\SiteController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -213,12 +213,8 @@
     </Compile>
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Models\AppointmentViewModel.cs" />
-
     <Compile Include="Models\NewsViewModel.cs" />
-    <Compile Include="Models\GuestActiveReservationViewModel.cs" />
-    <Compile Include="Models\GuestPastReservationViewModel.cs" />
     <Compile Include="Models\NewsCustomViewModel.cs" />
-
     <Compile Include="Models\ActiveReservationViewModel.cs" />
     <Compile Include="Models\PastReservationViewModel.cs" />
     <Compile Include="Models\ReservationCustomViewModel.cs" />
@@ -524,6 +520,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Site\Index.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -621,7 +619,6 @@
     <Content Include="Views\Appointment\Appointment.cshtml" />
     <Content Include="Views\Appointment\ActiveAppointment.cshtml" />
     <Content Include="Views\Appointment\PastAppointment.cshtml" />
-
     <Content Include="Views\Gallery\Gallery.cshtml" />
     <Content Include="Views\Gallery\Index.cshtml" />
     <Content Include="Views\Gallery\GalleryCreate.cshtml" />
@@ -630,7 +627,6 @@
     <Content Include="Views\News\News.cshtml" />
     <Content Include="Views\Shared\jquery-2.2.4.min.cshtml" />
     <Content Include="Views\News\NewsCreate.cshtml" />
-
     <Content Include="Views\Appointment\ActiveReservationForAdmin.cshtml" />
     <Content Include="Views\Appointment\PastReservationForAdmin.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
