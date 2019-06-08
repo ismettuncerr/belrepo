@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bel.DataLayer.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,12 @@ using System.Threading.Tasks;
 
 namespace Bel.DataLayer.Repository
 {
-    public class MunicipalityClassRepository : GenericRepository<MunicipalityClass>
+    public class MunicipalityClassRepository : GenericRepository<MunicipalityClass>, IMunicipalityClassRepository
     {
+        private readonly beldatabaseEntities context;
+        public MunicipalityClassRepository(beldatabaseEntities context)
+        {
+            this.context = context;
+        }
     }
 }

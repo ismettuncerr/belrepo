@@ -9,9 +9,8 @@ using System.Web.Mvc;
 
 namespace Bel.Controllers
 {
-    public class UserController : Controller
+    public class UserController : BaseController
     {
-        UserRepository repository = new UserRepository();
         public ActionResult Index()
         {
             var userViewModel = new UserViewModel();
@@ -28,13 +27,13 @@ namespace Bel.Controllers
         public ActionResult EditUser(int id)
         {
             var userViewModel = new UserViewModel();
-            userViewModel.User = repository.Get(id);
+            userViewModel.User = dataClient.UserRepository.Get(id);
             return View(userViewModel);
         }
         [HttpPost]
         public ActionResult EditUser(User user)
         {
-            repository.Edit(user);
+            dataClient.UserRepository.Edit(user);
             return RedirectToAction("Index");
         }
 

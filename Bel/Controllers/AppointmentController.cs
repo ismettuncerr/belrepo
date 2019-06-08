@@ -12,14 +12,14 @@ using System.Web.Security;
 
 namespace Bel.Controllers
 {
-    public class AppointmentController : Controller
+    public class AppointmentController : BaseController
     {
         // GET: Randevu
-        MunicipalityClassRepository municipalityClassRepository = new MunicipalityClassRepository();
-        SchoolClassRepository schoolClassRepository = new SchoolClassRepository();
-        ClassHourRepository classHourRepository = new ClassHourRepository();
+        //MunicipalityClassRepository municipalityClassRepository = new MunicipalityClassRepository();
+        //SchoolClassRepository schoolClassRepository = new SchoolClassRepository();
+        //ClassHourRepository classHourRepository = new ClassHourRepository();
         AppointmentViewModel appointmentViewModel = new AppointmentViewModel();
-        ReservationRepository reservationRepository = new ReservationRepository();
+        //ReservationRepository reservationRepository = new ReservationRepository();
 
         
 
@@ -52,7 +52,7 @@ namespace Bel.Controllers
 
         public ActionResult DeleteReservation(int id)
         {
-            var result = reservationRepository.DeleteReservation(id);
+            var result = dataClient.ReservationRepository.DeleteReservation(id);
             return RedirectToAction("Index");
         }
 
@@ -86,11 +86,11 @@ namespace Bel.Controllers
         }*/
         public List<MunicipalityClass> userList()
         {
-            return municipalityClassRepository.GetAll().ToList();
+            return dataClient.MunicipalityClassRepository.GetAll().ToList();
         }
         public List<SchoolClassModel> schoolClass(int refUserId)
         {
-            return schoolClassRepository.GetSchoolClass(refUserId).ToList();
+            return dataClient.SchoolClassRepository.GetSchoolClass(refUserId).ToList();
         }
 
         [HttpPost]
@@ -101,7 +101,7 @@ namespace Bel.Controllers
                 return null;
             }
             var jsonSerialiser = new JavaScriptSerializer();
-            var json = jsonSerialiser.Serialize(classHourRepository.GetUserByClasHourId(Convert.ToInt32(municipalityClassId)));
+            var json = jsonSerialiser.Serialize(dataClient.ClassHourRepository.GetUserByClasHourId(Convert.ToInt32(municipalityClassId)));
             return json;
         }
         [HttpPost]
@@ -164,7 +164,7 @@ namespace Bel.Controllers
             reservation.RefUserId = Convert.ToInt32(ticket().Name);
             reservation.RefSchoolId = reservationCustomViewModel.schoolClassId;
             reservation.ReservationDate = DateTime.Parse(reservationCustomViewModel.datepicker);            
-            TempData["shortMessage"] = reservationRepository.saveReservation(reservation);
+            TempData["shortMessage"] = dataClient.ReservationRepository.saveReservation(reservation);
             return RedirectToAction("Appointment", "Appointment");
 
         }

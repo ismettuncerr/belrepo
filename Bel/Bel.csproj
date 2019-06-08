@@ -200,6 +200,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -210,6 +211,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BaseClass.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Models\AppointmentViewModel.cs" />
     <Compile Include="Models\NewsViewModel.cs" />
@@ -724,6 +726,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\gallery\" />
     <Folder Include="Content\news\" />
+    <Folder Include="Views\BaseApi\" />
     <Folder Include="Views\Randevu\" />
   </ItemGroup>
   <ItemGroup>

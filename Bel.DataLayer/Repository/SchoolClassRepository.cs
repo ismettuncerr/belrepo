@@ -1,4 +1,5 @@
-﻿using Bel.DataLayer.Model;
+﻿using Bel.DataLayer.Interfaces;
+using Bel.DataLayer.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +8,13 @@ using System.Threading.Tasks;
 
 namespace Bel.DataLayer.Repository
 {
-    public class SchoolClassRepository : GenericRepository<SchoolClass>
+    public class SchoolClassRepository : GenericRepository<SchoolClass>, ISchoolClassRepository
     {
-        beldatabaseEntities beldatabaseEntities = new beldatabaseEntities();
+        private readonly beldatabaseEntities context;
+        public SchoolClassRepository(beldatabaseEntities context)
+        {
+            this.context = context;
+        }
         public List<SchoolClassModel> GetSchoolClass(int refUserId)
         {
             /*var query = from school in beldatabaseEntities.SchoolClass
@@ -17,7 +22,7 @@ namespace Bel.DataLayer.Repository
                         select new { schoolClass = school.Name };
             return query.ToList();*/
 
-            var query = from r in beldatabaseEntities.SchoolClass
+            var query = from r in context.SchoolClass
                         where r.RefUserId==refUserId
                         select new SchoolClassModel
                         {

@@ -72,10 +72,14 @@
     <Compile Include="ClassHour.cs">
       <DependentUpon>bel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataClient.cs" />
     <Compile Include="Gallery.cs">
       <DependentUpon>bel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Interface\IGenericRepository.cs" />
+    <Compile Include="Interfaces\IUserRoleRepository.cs" />
+    <Compile Include="Interfaces\IGenericRepository.cs" />
+    <Compile Include="Interfaces\IUserRepository.cs" />
+    <Compile Include="Interfaces\ISchoolClassRepository.cs" />
     <Compile Include="Model\ReservationModel.cs" />
     <Compile Include="Model\SchoolClassModel.cs" />
     <Compile Include="MunicipalityClass.cs">
@@ -107,6 +111,9 @@
     <Compile Include="UserRole.cs">
       <DependentUpon>bel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IMunicipalityClassRepository.cs" />
+    <Compile Include="Interfaces\IClassHourRepository.cs" />
+    <Compile Include="Interfaces\IReservationRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
