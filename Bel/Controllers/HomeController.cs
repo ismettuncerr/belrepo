@@ -28,5 +28,10 @@ namespace Bel.Controllers
             users = dataClient.UserRepository.GetAll().ToList();
             return View(users);
         }
+
+        public ActionResult About()
+        {
+            return View();
+        }
     }
 }
