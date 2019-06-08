@@ -9,12 +9,10 @@ using System.Web.Security;
 
 namespace Bel.Controllers
 {
-    public class LoginController : Controller
+    public class LoginController : BaseController
     {
-        UserRepository userRepository = new UserRepository();
-        UserRoleRepository userRoleRepository = new UserRoleRepository();
         // GET: Login
-        [OutputCache(Duration = 1000)]
+        //[OutputCache(Duration = 1000)]
         public ActionResult Index()
         {
             FormsAuthentication.SignOut();
@@ -31,13 +29,13 @@ namespace Bel.Controllers
         {
             if (user.Id > 0)
             {
-                var userControl = userRepository.Get(user.Id);
+                var userControl = dataClient.UserRepository.Get(user.Id);
                 if (userControl != null)
                 {
                     if (userControl.Password == user.Password)
                     {
                         FormsAuthentication.SetAuthCookie(user.Id.ToString(),false);
-                        if(userRoleRepository.GetUserRoleById(user.Id)=="Guest")
+                        if(dataClient.UserRoleRepository.GetUserRoleById(user.Id)=="Guest")
                             return RedirectToAction("Appointment", "Appointment");
                         else
                             return RedirectToAction("Index", "Appointment");
@@ -68,7 +66,7 @@ namespace Bel.Controllers
         
         public List<User> userList()
         {
-            return userRepository.GetAll().ToList();
+            return dataClient.UserRepository.GetAll().ToList();
         }
 
     }

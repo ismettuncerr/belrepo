@@ -8,7 +8,7 @@ using System.Web;
 
 namespace Bel.Models
 {
-    public class GalleryViewModel
+    public class GalleryViewModel : BaseClass
     {
         GalleryRepository galleryRepository = new GalleryRepository();
         public List<Gallery> Galleries { get; set; }

@@ -8,7 +8,7 @@ using System.Web;
 
 namespace Bel.Models
 {
-    public class NewsViewModel
+    public class NewsViewModel : BaseClass
     {
         NewsRepository newsRepository = new NewsRepository();
         public List<News> News { get; set; }

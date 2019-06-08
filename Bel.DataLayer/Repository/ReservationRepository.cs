@@ -1,22 +1,28 @@
-﻿using Bel.DataLayer.Model;
+﻿using Bel.DataLayer.Interfaces;
+using Bel.DataLayer.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Bel.DataLayer.Repository
 {
-    public class ReservationRepository : GenericRepository<Reservation>
+    public class ReservationRepository : GenericRepository<Reservation>, IReservationRepository
     {
-        beldatabaseEntities beldatabaseEntities = new beldatabaseEntities();
+        private readonly beldatabaseEntities context;
+        public ReservationRepository(beldatabaseEntities context)
+        {
+            this.context = context;
+        }
         public List<ReservationModel> GetReservations()
         {
-            var query = from r in beldatabaseEntities.Reservation
-                        join u in beldatabaseEntities.User on r.RefUserId equals u.Id
-                        join mc in beldatabaseEntities.MunicipalityClass on r.RefMunicipalityClassId equals mc.Id
-                        join sc in beldatabaseEntities.SchoolClass on r.RefSchoolId equals sc.Id
-                        join ch in beldatabaseEntities.ClassHour on r.RefClassHourId equals ch.Id
+            var query = from r in context.Reservation
+                        join u in context.User on r.RefUserId equals u.Id
+                        join mc in context.MunicipalityClass on r.RefMunicipalityClassId equals mc.Id
+                        join sc in context.SchoolClass on r.RefSchoolId equals sc.Id
+                        join ch in context.ClassHour on r.RefClassHourId equals ch.Id
                         select new ReservationModel
                         {
                             Id = r.Id
@@ -49,11 +55,11 @@ namespace Bel.DataLayer.Repository
 
         public List<ReservationModel> GetActiveReservations(int? refUserId)
         {
-            var query = from r in beldatabaseEntities.Reservation
-                        join u in beldatabaseEntities.User on r.RefUserId equals u.Id
-                        join mc in beldatabaseEntities.MunicipalityClass on r.RefMunicipalityClassId equals mc.Id
-                        join sc in beldatabaseEntities.SchoolClass on r.RefSchoolId equals sc.Id
-                        join ch in beldatabaseEntities.ClassHour on r.RefClassHourId equals ch.Id
+            var query = from r in context.Reservation
+                        join u in context.User on r.RefUserId equals u.Id
+                        join mc in context.MunicipalityClass on r.RefMunicipalityClassId equals mc.Id
+                        join sc in context.SchoolClass on r.RefSchoolId equals sc.Id
+                        join ch in context.ClassHour on r.RefClassHourId equals ch.Id
                         where r.IsActive == true && r.ReservationDate >= DateTime.Now
                         select new ReservationModel
                         {
@@ -81,20 +87,20 @@ namespace Bel.DataLayer.Repository
                             ,
                             Hour = ch.Hour
                         };
-            var activeRezervations = query.ToList();
+            var activeReservations = query.ToList();
             if (refUserId != null)
-                return activeRezervations.Where(x => x.RefUserId == refUserId).ToList();
+                return activeReservations.Where(x => x.RefUserId == refUserId).ToList();
             else
-                return activeRezervations;
+                return activeReservations;
         }
 
         public List<ReservationModel> GetPastReservations(int? refUserId)
         {
-            var query = from r in beldatabaseEntities.Reservation
-                        join u in beldatabaseEntities.User on r.RefUserId equals u.Id
-                        join mc in beldatabaseEntities.MunicipalityClass on r.RefMunicipalityClassId equals mc.Id
-                        join sc in beldatabaseEntities.SchoolClass on r.RefSchoolId equals sc.Id
-                        join ch in beldatabaseEntities.ClassHour on r.RefClassHourId equals ch.Id
+            var query = from r in context.Reservation
+                        join u in context.User on r.RefUserId equals u.Id
+                        join mc in context.MunicipalityClass on r.RefMunicipalityClassId equals mc.Id
+                        join sc in context.SchoolClass on r.RefSchoolId equals sc.Id
+                        join ch in context.ClassHour on r.RefClassHourId equals ch.Id
                         where r.IsActive == true && r.ReservationDate < DateTime.Now
                         select new ReservationModel
                         {
@@ -122,16 +128,16 @@ namespace Bel.DataLayer.Repository
                             ,
                             Hour = ch.Hour
                         };
-            var pastRezervations = query.ToList();
+            var pastReservations = query.ToList();
             if (refUserId != null)
-                return pastRezervations.Where(x => x.RefUserId == refUserId).ToList();
+                return pastReservations.Where(x => x.RefUserId == refUserId).ToList();
             else
-                return pastRezervations;
+                return pastReservations;
         }
 
         public string saveReservation(Reservation reservation)
         {
-            var query = from res in beldatabaseEntities.Reservation
+            var query = from res in context.Reservation
                         where res.RefMunicipalityClassId == reservation.RefMunicipalityClassId
                                                              && res.ReservationDate == reservation.ReservationDate
                                                              && res.RefClassHourId == reservation.RefClassHourId
@@ -150,7 +156,7 @@ namespace Bel.DataLayer.Repository
 
             var a = query.ToList();
 
-            Reservation userDateControlQuery = beldatabaseEntities.Reservation.Where(u => u.RefUserId == reservation.RefUserId).OrderByDescending(x => x.Id).FirstOrDefault();
+            Reservation userDateControlQuery = context.Reservation.Where(u => u.RefUserId == reservation.RefUserId).OrderByDescending(x => x.Id).FirstOrDefault();
             if (userDateControlQuery.ReservationDate.Value.AddDays(15) > reservation.ReservationDate)
             {
                 return "15 gün içerisinde tekrar randevu alamazsınız.";
@@ -163,9 +169,8 @@ namespace Bel.DataLayer.Repository
             {
                 return "15 günden daha ileri bir tarih seçemezsiniz.";
             }
-            ReservationRepository reservationRepository = new ReservationRepository();
-            reservationRepository.Add(reservation);
-            reservationRepository.Save();
+            Add(reservation);
+            Save();
             return "Kayıt Başarılı";
         }
 

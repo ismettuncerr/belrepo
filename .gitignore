@@ -1,6 +1,10 @@
+*bin/*
 *bin/
+*/bin/
 *publish/
+*obj/*
 *obj/
+*/obj/
 *.user
 *.suo
 *applicationhost.config
@@ -15,3 +19,9 @@ packages/
 .vs/Bel/v15/Server/sqlite3/storage.ide-wal
 .vs/Bel/v15/Server/sqlite3/storage.ide-shm
 .vs/Bel/v15/Server/sqlite3/storage.ide
+Bel/bin/Bel.DataLayer.dll
+Bel/bin/Bel.pdb
+Bel/bin/Bel.dll
+Bel/bin/Bel.DataLayer.pdb
+Bel/obj/Debug/Bel.dll
+Bel/obj/Debug/Bel.pdb

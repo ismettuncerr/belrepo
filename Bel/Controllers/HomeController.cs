@@ -8,9 +8,9 @@ using System.Web.Mvc;
 
 namespace Bel.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        UserRepository userRepository = new UserRepository();
+        //UserRepository userRepository = new UserRepository();
         public ActionResult Index()
         {
 
@@ -25,7 +25,7 @@ namespace Bel.Controllers
 
             users.AddRange(userRepository.GetUsers().Select(x => new SelectListItem { Text = x.Name, Value = x.Id.ToString() }));*/
             List<User> users = new List<User>();
-            users = userRepository.GetAll().ToList();
+            users = dataClient.UserRepository.GetAll().ToList();
             return View(users);
         }
 

@@ -1,4 +1,5 @@
-﻿using Bel.DataLayer.Model;
+﻿using Bel.DataLayer;
+using Bel.DataLayer.Model;
 using Bel.DataLayer.Repository;
 using System;
 using System.Collections.Generic;
@@ -8,15 +9,14 @@ using System.Web;
 namespace Bel.Models
 {
     
-    public class ActiveReservationViewModel
+    public class ActiveReservationViewModel : BaseClass
     {
-        ReservationRepository reservationRepository = new ReservationRepository();
         public List<ReservationModel> Reservations { get; set; }
 
         public ActiveReservationViewModel(int? refUserId = null)
         {
             Reservations = new List<ReservationModel>();
-            Reservations = reservationRepository.GetActiveReservations(refUserId);
+            Reservations = dataClient.ReservationRepository.GetActiveReservations(refUserId);
         }
     }
 }

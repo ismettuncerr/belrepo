@@ -8,15 +8,14 @@ using System.Web;
 
 namespace Bel.Models
 {
-    public class ReservationViewModel
+    public class ReservationViewModel : BaseClass
     {
-        ReservationRepository reservationRepository = new ReservationRepository();
         public List<ReservationModel> Reservations { get; set; }
 
         public ReservationViewModel()
         {
             Reservations = new List<ReservationModel>();
-            Reservations = reservationRepository.GetReservations();
+            Reservations = dataClient.ReservationRepository.GetReservations();
         }
     }
 }
