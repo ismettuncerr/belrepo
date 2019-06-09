@@ -36,10 +36,51 @@
                     </div>
                     <div class="jq-tab-content-wrapper">
                         <div class="jq-tab-content active" data-tab="1">
-                            <textarea id="About" name="About"></textarea>
+                            <form action="/Site/SaveAbout" method="post" enctype="multipart/form-data">
+                                <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">                                    
+                                        <textarea id="AboutDetail" name="AboutDetail">@Model.about.AboutDetail</textarea>                                    
+                                </div>
+                                <div class="container-login100-form-btn">
+                                    <button type="submit" class="login100-form-btn">Kaydet</button>
+                                </div>
+                            </form>
                         </div>
                         <div class="jq-tab-content" data-tab="3">
-                            Tablo 3
+                            <form class="login100-form validate-form" action="/Site/SaveContact" method="post" enctype="multipart/form-data">
+                                <div class="wrap-input100 validate-input m-b-18" data-validate="Haber Başlığı">
+                                    <span class="label-input100">İl/İlçe</span>
+                                    <input class="input100" type="text" name="CityState" value="@Model.contact.CityState" placeholder="İl/İlçe">
+                                    <span class="focus-input100"></span>
+                                </div>
+                                <div class="wrap-input100 validate-input m-b-18" data-validate="Haber Başlığı">
+                                    <span class="label-input100">Adres</span>
+                                    <textarea class="input100" id="Address" maxlength="1000" name="Address">@Model.contact.Address</textarea>
+                                    <span class="focus-input100"></span>
+                                </div>
+                                <div class="wrap-input100 validate-input m-b-18" data-validate="Haber Başlığı">
+                                    <span class="label-input100">Telefon</span>
+                                    <input class="input100" type="tel" name="Phone" value="@Model.contact.Phone" pattern="[0-9]{4}[0-9]{3}[0-9]{4}" maxlength="12" placeholder="02121234567">
+                                    <span class="focus-input100"></span>
+                                </div>
+                                <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+                                    <span class="label-input100">Telefon Açıklama</span>
+                                    <textarea class="input100" id="PhoneDescription" maxlength="50" name="PhoneDescription">@Model.contact.PhoneDescription</textarea>
+                                    <span class="focus-input100"></span>
+                                </div>
+                                <div class="wrap-input100 validate-input m-b-18" data-validate="Haber Başlığı">
+                                    <span class="label-input100">Email</span>
+                                    <input class="input100" type="email" name="Email" value="@Model.contact.Email" maxlength="50" placeholder="a@a.com">
+                                    <span class="focus-input100"></span>
+                                </div>
+                                <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+                                    <span class="label-input100">Mail Açıklama</span>
+                                    <textarea class="input100" id="EMailDescription" maxlength="50" name="EMailDescription">@Model.contact.EMailDescription</textarea>
+                                    <span class="focus-input100"></span>
+                                </div>
+                                <div class="container-login100-form-btn">
+                                    <button type="submit" class="login100-form-btn">Kaydet</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -53,7 +94,7 @@
 
 <script>
     $(document).ready(function () {
-        $('#About').summernote({
+        $('#AboutDetail').summernote({
             toolbar: [
                 // [groupName, [list of button]]
                 ['fontname', ['fontname']],

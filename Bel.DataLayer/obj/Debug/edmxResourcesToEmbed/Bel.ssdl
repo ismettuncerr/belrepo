@@ -1,5 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="beldatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="About">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AboutDetail" Type="nvarchar(max)" />
+  </EntityType>
   <EntityType Name="ClassHour">
     <Key>
       <PropertyRef Name="Id" />
@@ -8,6 +15,18 @@
     <Property Name="Name" Type="nvarchar" MaxLength="250" />
     <Property Name="Hour" Type="nvarchar" MaxLength="50" />
     <Property Name="RefMunicipalityClassId" Type="int" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CityState" Type="nvarchar" MaxLength="400" />
+    <Property Name="Address" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhoneDescription" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="EMailDescription" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Gallery">
     <Key>
@@ -76,7 +95,9 @@
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityContainer Name="beldatabaseModelStoreContainer">
+    <EntitySet Name="About" EntityType="Self.About" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ClassHour" EntityType="Self.ClassHour" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Gallery" EntityType="Self.Gallery" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MunicipalityClass" EntityType="Self.MunicipalityClass" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />

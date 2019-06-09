@@ -57,7 +57,7 @@ namespace Bel.Controllers
                     newsRepository.Save();
                 }
             }
-            return View();
+            return RedirectToAction("News", "News");
         }
     }
 }

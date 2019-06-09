@@ -3,43 +3,53 @@
     ViewBag.Title = "EditUser";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<div class="limiter">
-    <div class="container-login100">
-        <div class="wrap-login100" style="width:80%">
-            <section class="banner-area relative about-banner" id="home">
-                <div class="overlay overlay-bg"></div>
-                <div class="container">
-                    <div class="row d-flex align-items-center justify-content-center">
-                        <div class="about-content col-lg-12">
-                            <h1 class="text-white">
-                                Kullanıcı Düzenleme
-                            </h1>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="popular-course-area section-gap no-padding">
-                <div class="container">
+<section class="banner-area relative about-banner" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white">
+                    Kullanıcı Düzenleme
+                </h1>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="course-details-area pt-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 left-contents">
+                <div class="jq-tab-wrapper" id="horizontalTab">
                     @using (Html.BeginForm("EditUser", "User", FormMethod.Post))
                     {
                         @Html.HiddenFor(x => Model.User.Id)
-                        @Html.Label("İsim")<br />
-                        @Html.TextBoxFor(k => Model.User.Name, new { @class = "form control" })<br />
-                        @Html.ValidationMessageFor(k => Model.User.Name, null, new { @class = "text-danger" })<br />
 
-                        @Html.Label("EMail")<br />
-                        @Html.TextBoxFor(k => Model.User.EMail, new { @class = "form control" })<br />
-                        @Html.ValidationMessageFor(k => Model.User.EMail, null, new { @class = "text-danger" })<br />
+                        <div class="wrap-input100 validate-input m-b-18" data-validate="Haber Başlığı">
+                            @Html.Label("İsim", new { @class = "label-input100" })
+                            @Html.TextBoxFor(k => Model.User.Name, new { @class = "input100" })
+                            @Html.ValidationMessageFor(k => Model.User.Name, null, new { @class = "text-danger" })
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input m-b-18" data-validate="Haber Başlığı">
+                            @Html.Label("EMail", new { @class = "label-input100" })
+                            @Html.TextBoxFor(k => Model.User.EMail, null, new { @class = "input100" })
+                            @Html.ValidationMessageFor(k => Model.User.EMail, null, new { @class = "text-danger" })
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input m-b-18" data-validate="Haber Başlığı">
+                            @Html.Label("Şifre", new { @class = "label-input100" })
+                            @Html.TextBoxFor(k => Model.User.Password, new { @class = "input100" })
+                            @Html.ValidationMessageFor(k => Model.User.Password, null, new { @class = "text-danger" })
+                            <span class="focus-input100"></span>
+                        </div>
 
-                        @Html.Label("Şifre")<br />
-                        @Html.TextBoxFor(k => Model.User.Password, new { @class = "form control" })<br />
-                        @Html.ValidationMessageFor(k => Model.User.Password, null, new { @class = "text-danger" })<br />
-
-                        <input type="submit" value="Düzenle" class="btn btn-success" />
+                        <input type="submit" value="Güncelle" class="btn btn-success" />
                     }
                 </div>
-            </section>
+            </div>
         </div>
     </div>
-</div>
+</section>
+<br />
+<br />
+<br />

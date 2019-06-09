@@ -27,49 +27,56 @@
     </div>
 </section>
 
-<div class="limiter">
-    <div class="container-login100">
-        <div class="wrap-login100" style="width:950px !important;">
 
-
-            <form class="login100-form validate-form" action="/News/NewsCreate" method="post" enctype="multipart/form-data">
-                <div class="wrap-input100 validate-input m-b-18" data-validate="Haber Başlığı">
-                    <span class="label-input100">Başlık</span>
-                    <input class="input100" type="text" name="NewsHeadline" placeholder="Haber Başlığı">
-                    <span class="focus-input100"></span>
-                </div>
-                <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
-                    <span class="label-input100">Resim</span>
-                    <input type="file" name="NewsImage" id="NewsImage" class="input100" />
-                    <span class="focus-input100"></span>
-                </div>
-                <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
-                    <span class="label-input100">Özet</span>
-                    <textarea id="NewsBrief" name="NewsBrief"></textarea>
-                    <span class="focus-input100"></span>
-                </div>
-                <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
-                    <span class="label-input100">İçerik</span>
-                    <textarea id="NewsContent" name="NewsContent"></textarea>
-                    <span class="focus-input100"></span>
-                </div>
-
-                <div class="flex-sb-m w-full p-b-30">
-
-                    <div>
-                        <div class="txt1" style="color:#ff0000; font-size:15px">
-                            @ViewBag.PasswordControl
+<section class="course-details-area pt-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 left-contents">
+                <div class="jq-tab-wrapper" id="horizontalTab">
+                    <form class="login100-form validate-form" action="/News/NewsCreate" method="post" enctype="multipart/form-data">
+                        <div class="wrap-input100 validate-input m-b-18" data-validate="Haber Başlığı">
+                            <span class="label-input100">Başlık</span>
+                            <input class="input100" type="text" name="NewsHeadline" maxlength="50" required placeholder="Haber Başlığı">
+                            <span class="focus-input100"></span>
                         </div>
-                    </div>
-                </div>
+                        <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+                            <span class="label-input100">Resim</span>
+                            <input type="file" name="NewsImage" id="NewsImage" class="input100" required />
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+                            <span class="label-input100">Özet</span>
+                            <textarea id="NewsBrief" name="NewsBrief" maxlength="10" required></textarea>
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+                            <span class="label-input100">İçerik</span>
+                            <textarea id="NewsContent" name="NewsContent" required></textarea>
+                            <span class="focus-input100"></span>
+                        </div>
 
-                <div class="container-login100-form-btn">
-                    <button type="submit" class="login100-form-btn">Kaydet</button>
+                        <div class="flex-sb-m w-full p-b-30">
+
+                            <div>
+                                <div class="txt1" style="color:#ff0000; font-size:15px">
+                                    @ViewBag.PasswordControl
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container-login100-form-btn">
+                            <button type="submit" class="login100-form-btn">Kaydet</button>
+                        </div>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
-</div>
+</section>
+<br />
+<br />
+<br />
+
 
 <script>
     $(document).ready(function () {

@@ -17,40 +17,42 @@
         </div>
     </div>
 </section>
-<div class="limiter">
-    <div class="container-login100">
-        <div class="wrap-login100" style="width:80%">
-            <section class="popular-course-area section-gap no-padding">
-                <div class="container">
 
-                    <div>
-                        <a href="/Gallery/GalleryCreate" style="width:40%" class="login100-form-btn">Yeni Resim Ekle</a>
-                    </div>
-                    </br>
-                    <table class="table table-hover" style="cursor:pointer">
-                        <thead>
-                            <tr>
-                                <td>Fotoğraf</td>
-                                <td>Sil</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model.Galleries)
-                            {
+<section class="course-details-area pt-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 left-contents">
+                <div class="jq-tab-wrapper" id="horizontalTab">
+                    <div class="container">
+
+                        <div>
+                            <a href="/Gallery/GalleryCreate" style="width:40%" class="login100-form-btn">Yeni Resim Ekle</a>
+                        </div>
+                        <br />
+                        <table class="table table-hover" style="cursor:pointer">
+                            <thead>
                                 <tr>
-                                    <td><img src="~/Content/gallery/@item.PhotoName" height="50" /></td>
-                                    <td><input class="btn btn-danger btnSubmit" type="submit" value="Sil" /></td>
-                                    <!--<td>@Html.ActionLink("Detail", "DetailReservation", new { id = item.Id }, new { @class = "btn btn-danger" })</td>-->
+                                    <td>Fotoğraf</td>
+                                    <td>Sil</td>
                                 </tr>
-
-
-                                            }
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Galleries)
+                                {
+                                    <tr>
+                                        <td><img src="~/Content/gallery/@item.PhotoName" height="50" /></td>
+                                        <td><input class="btn btn-danger btnSubmit" type="submit" value="Sil" /></td>
+                                        <!--<td>@Html.ActionLink("Detail", "DetailReservation", new { id = item.Id }, new { @class = "btn btn-danger" })</td>-->
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                </section>
             </div>
+        </div>
     </div>
-</div>
-
-
+</section>
+<br />
+<br />
+<br />

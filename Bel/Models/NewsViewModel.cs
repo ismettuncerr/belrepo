@@ -16,7 +16,7 @@ namespace Bel.Models
         public NewsViewModel()
         {
             News = new List<News>();
-            News = newsRepository.GetAll().ToList();
+            News = newsRepository.GetAll().OrderByDescending(x=>x.Id).ToList();
         }
     }
 }

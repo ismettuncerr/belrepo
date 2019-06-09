@@ -9,7 +9,7 @@ namespace Bel.Controllers
 {
     public class BaseController : Controller
     {
-        protected DataClient dataClient = new DataClient();
+        protected DataClient dataClient = new DataClient();        
 
     }
 }
