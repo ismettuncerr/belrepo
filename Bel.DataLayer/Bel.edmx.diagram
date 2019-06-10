@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4ea5368423c3433b9a6e0f27cb7da913" Name="Diagram1" ZoomLevel="149">
+      <Diagram DiagramId="4ea5368423c3433b9a6e0f27cb7da913" Name="Diagram1" ZoomLevel="112">
         <EntityTypeShape EntityType="beldatabaseModel.MunicipalityClass" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="beldatabaseModel.SchoolClass" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="beldatabaseModel.SchoolClass" Width="1.5" PointX="2.75" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="beldatabaseModel.User" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="beldatabaseModel.UserRole" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="beldatabaseModel.ClassHour" Width="1.5" PointX="3.375" PointY="6.75" />
+        <EntityTypeShape EntityType="beldatabaseModel.ClassHour" Width="1.5" PointX="2.625" PointY="4.875" />
         <EntityTypeShape EntityType="beldatabaseModel.Reservation" Width="1.5" PointX="0.625" PointY="0.75" />
-        <EntityTypeShape EntityType="beldatabaseModel.Gallery" Width="1.5" PointX="0.75" PointY="6.75" />
-        <EntityTypeShape EntityType="beldatabaseModel.News" Width="1.5" PointX="5.375" PointY="6.75" />
+        <EntityTypeShape EntityType="beldatabaseModel.Gallery" Width="1.5" PointX="0.625" PointY="5.5" />
+        <EntityTypeShape EntityType="beldatabaseModel.News" Width="1.5" PointX="4.625" PointY="5.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

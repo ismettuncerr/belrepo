@@ -35,9 +35,15 @@ namespace Bel.DataLayer
 
         private Lazy<IUserRoleRepository> lazyUserRoleRepository = new Lazy<IUserRoleRepository>(() => new UserRoleRepository(new beldatabaseEntities()));
         public IUserRoleRepository UserRoleRepository { get { return lazyUserRoleRepository.Value; } }
+
+        private Lazy<INewsRepository> lazyNewsRepository = new Lazy<INewsRepository>(() => new NewsRepository(new beldatabaseEntities()));
+        public INewsRepository NewsRepository { get { return lazyNewsRepository.Value; } }
+
+        private Lazy<IGalleryRepository> lazyGalleryRepository = new Lazy<IGalleryRepository>(() => new GalleryRepository(new beldatabaseEntities()));
+        public IGalleryRepository GalleryRepository { get { return lazyGalleryRepository.Value; } }
+
+
         
-
-
 
 
     }

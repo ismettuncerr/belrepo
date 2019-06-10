@@ -44,9 +44,8 @@
                                     <td>@item.MunicipalityClassName</td>
                                     <td>@item.SchoolClassName</td>
                                     <td>@item.Hour</td>
-                                    <td><input class="btn btn-warning btnSubmit" type="submit" value="Detay" /></td>
+                                    <td>@Html.ActionLink("Detay", "DetailReservation", new { id = item.Id }, new { @class = "btn btn-warning" })</td>
                                     <td>@Html.ActionLink("Sil", "DeleteReservation", new { id = item.Id }, new { @class = "btn btn-danger" })</td>
-                                    <!--<td>@Html.ActionLink("Detail", "DetailReservation", new { id = item.Id }, new { @class = "btn btn-warning" })</td>-->
                                 </tr>
                             }
                         </tbody>
@@ -57,14 +56,12 @@
     </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
 <!-- jQuery Modal -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-<div id="ex1">
-    <p>Thanks for clicking. That felt good.</p>
-</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
 <link href="~/Content/paging.css" rel="stylesheet" />
 <script src="~/Scripts/paging.js"></script>
 <script type="text/javascript">
@@ -73,18 +70,18 @@
     })
 </script>
 <!-- Link to open the modal -->
-<script>
-    $(document).ready(function () {
-        $(".btnSubmit").click(function () {
-            var opt = {
-                width: 920,
-                height: 650,
-                title: 'Details'
-            };
-            $("#ex1").dialog(opt).dialog("open");
+@*<script>
+        $(document).ready(function () {
+            $(".btnSubmit").click(function () {
+                var opt = {
+                    width: 920,
+                    height: 650,
+                    title: 'Details'
+                };
+                $("#ex1").dialog(opt).dialog("open");
+            });
         });
-    });
-</script>
+    </script>*@
 
 
 

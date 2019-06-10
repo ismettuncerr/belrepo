@@ -10,13 +10,12 @@ namespace Bel.Models
 {
     public class NewsViewModel : BaseClass
     {
-        NewsRepository newsRepository = new NewsRepository();
         public List<News> News { get; set; }
-
+        public News New { get; set; }
         public NewsViewModel()
         {
             News = new List<News>();
-            News = newsRepository.GetAll().ToList();
+            News = dataClient.NewsRepository.GetAll().ToList();
         }
     }
 }

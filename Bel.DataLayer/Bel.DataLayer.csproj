@@ -76,6 +76,8 @@
     <Compile Include="Gallery.cs">
       <DependentUpon>bel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IGalleryRepository.cs" />
+    <Compile Include="Interfaces\INewsRepository.cs" />
     <Compile Include="Interfaces\IUserRoleRepository.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
