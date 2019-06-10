@@ -39,13 +39,13 @@
                                 {
                                     <tr>
                                         <td>@item.AdvisorName</td>
-                                    <td>@item.ReservationDate</td>
-                                    <td>@item.UserName</td>
-                                    <td>@item.MunicipalityClassName</td>
-                                    <td>@item.SchoolClassName</td>
-                                    <td>@item.Hour</td>
-                                    <td>@Html.ActionLink("Detay", "DetailReservation", new { id = item.Id }, new { @class = "btn btn-warning" })</td>
-                                    <td>@Html.ActionLink("Sil", "DeleteReservation", new { id = item.Id }, new { @class = "btn btn-danger" })</td>
+                                        <td>@item.ReservationDate</td>
+                                        <td>@item.UserName</td>
+                                        <td>@item.MunicipalityClassName</td>
+                                        <td>@item.SchoolClassName</td>
+                                        <td>@item.Hour</td>
+                                        <td>@Html.ActionLink("Detay", "DetailReservation", new { id = item.Id }, new { @class = "btn btn-warning" })</td>
+                                        <td>@Html.ActionLink("Sil", "DeleteReservation", new { id = item.Id }, new { @class = "btn btn-danger" })</td>
                                     </tr>
                                 }
                             </tbody>

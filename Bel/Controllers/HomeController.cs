@@ -12,11 +12,10 @@ namespace Bel.Controllers
     public class HomeController : BaseController
     {
         SiteManagementViewModel siteManagementViewModel = new SiteManagementViewModel();
-        NewsRepository newsRepository = new NewsRepository();
         //UserRepository userRepository = new UserRepository();
         public ActionResult Index()
         {
-            var news = newsRepository.GetAll().OrderByDescending(x=> x.Id).Take(8).ToList();
+            var news = dataClient.NewsRepository.GetAll().OrderByDescending(x=> x.Id).Take(8).ToList();
             return View(news);
         }
         public ActionResult Contact()
