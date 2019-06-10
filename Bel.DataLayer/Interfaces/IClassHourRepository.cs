@@ -9,6 +9,6 @@ namespace Bel.DataLayer.Interfaces
 {
     public interface IClassHourRepository : IGenericRepository<ClassHour>
     {
-        List<ClassHour> GetUserByClasHourId(int municipalityClassId);
+        List<ReservationClassHour> GetUserByClasHourId(int municipalityClassId, DateTime dateTime);
     }
 }

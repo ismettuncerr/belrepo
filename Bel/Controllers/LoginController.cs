@@ -38,7 +38,7 @@ namespace Bel.Controllers
                         if(dataClient.UserRoleRepository.GetUserRoleById(user.Id)=="Guest")
                             return RedirectToAction("Appointment", "Appointment");
                         else
-                            return RedirectToAction("Index", "Appointment");
+                            return RedirectToAction("Index", "Site");
                     }
                     else
                     {

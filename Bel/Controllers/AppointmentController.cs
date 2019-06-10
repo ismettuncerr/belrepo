@@ -119,8 +119,12 @@ namespace Bel.Controllers
             {
                 return null;
             }
+            if (DateTime.Now.Date > date)
+            {
+                return null;
+            }
             var jsonSerialiser = new JavaScriptSerializer();
-            var json = jsonSerialiser.Serialize(dataClient.ClassHourRepository.GetUserByClasHourId(Convert.ToInt32(municipalityClassId)));
+            var json = jsonSerialiser.Serialize(dataClient.ClassHourRepository.GetUserByClasHourId(Convert.ToInt32(municipalityClassId),date));
             return json;
         }
         [HttpPost]
@@ -173,6 +177,11 @@ namespace Bel.Controllers
                 var jsonSerialiser = new JavaScriptSerializer();
                 studentJson = jsonSerialiser.Serialize(localList);
                 application.Quit();
+            }
+            else
+            {
+                TempData["shortMessage"] = "Excel formatında öğrenci listesi yükleyiniz.";
+                return RedirectToAction("Appointment", "Appointment");
             }
             Reservation reservation = new Reservation();
             reservation.AdvisorName = reservationCustomViewModel.consultant;

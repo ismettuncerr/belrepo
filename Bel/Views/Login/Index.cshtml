@@ -10,7 +10,7 @@
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12">
                 <h1 class="text-white">
-                    Randevu Oluştur
+                    Kullanıcı Girişi
                 </h1>
 
             </div>
@@ -18,50 +18,55 @@
     </div>
 </section>
 <!-- End banner Area -->
-<div class="limiter">
-    <div class="container-login100">
-        <div class="wrap-login100">
+<section class="course-details-area pt-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 left-contents">
+                <div class="jq-tab-wrapper" id="horizontalTab">
+                    <form class="login100-form validate-form" action="/Login" method="post">
+                        <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+                            <span class="label-input100">Username</span>
+                            <span class="focus-input100"></span>
+                            <div class="form-select" id="service-select">
 
+                                <select id="Id" name="Id">
+                                    <option datd-display="">Okulunuzu Seçiniz</option>
+                                    @foreach (var item in Model)
+                                    {
+                                        <option value="@item.Id">@item.Name</option>
+                                    }
 
-            <form class="login100-form validate-form" action="/Login" method="post">
-                <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
-                    <span class="label-input100">Username</span>
-                    <span class="focus-input100"></span>
-                    <div class="form-select" id="service-select">
-
-                        <select id="Id" name="Id">
-                            <option datd-display="">Okulunuzu Seçiniz</option>
-                            @foreach (var item in Model)
-                            {
-                                <option value="@item.Id">@item.Name</option>
-                            }
-
-                            <!--<option value="1">Course One</option>
-                            <option value="2">Course Two</option>
-                                <option value="3">Course Three</option>
-                                <option value="4">Course Four</option>-->
-                        </select>
-                    </div>
-                </div>
-                <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
-                    <span class="label-input100">Password</span>
-                    <input class="input100" type="password" name="password" placeholder="Enter password">
-                    <span class="focus-input100"></span>
-                </div>
-
-                <div class="flex-sb-m w-full p-b-30">
-
-                    <div>
-                        <div class="txt1" style="color:#ff0000; font-size:15px">
-                            @ViewBag.PasswordControl
+                                    <!--<option value="1">Course One</option>
+                    <option value="2">Course Two</option>
+                        <option value="3">Course Three</option>
+                        <option value="4">Course Four</option>-->
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                        <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+                            <span class="label-input100">Password</span>
+                            <input class="input100" type="password" name="password" placeholder="Enter password">
+                            <span class="focus-input100"></span>
+                        </div>
 
-                <div class="container-login100-form-btn">
-                    <button type="submit" class="login100-form-btn">Login</button>
+                        <div class="flex-sb-m w-full p-b-30">
+
+                            <div>
+                                <div class="txt1" style="color:#ff0000; font-size:15px">
+                                    @ViewBag.PasswordControl
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container-login100-form-btn">
+                            <button type="submit" class="login100-form-btn">Login</button>
+                        </div>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
-</div>
+</section>
+<br />
+<br />
+<br />

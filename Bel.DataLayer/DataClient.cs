@@ -42,9 +42,10 @@ namespace Bel.DataLayer
         private Lazy<IGalleryRepository> lazyGalleryRepository = new Lazy<IGalleryRepository>(() => new GalleryRepository(new beldatabaseEntities()));
         public IGalleryRepository GalleryRepository { get { return lazyGalleryRepository.Value; } }
 
+        private Lazy<IAboutRepository> lazyAboutRepository = new Lazy<IAboutRepository>(() => new AboutRepository(new beldatabaseEntities()));
+        public IAboutRepository AboutRepository { get { return lazyAboutRepository.Value; } }
 
-        
-
-
+        private Lazy<IContactRepository> lazyContactRepository = new Lazy<IContactRepository>(() => new ContactRepository(new beldatabaseEntities()));
+        public IContactRepository ContactRepository { get { return lazyContactRepository.Value; } }
     }
 }

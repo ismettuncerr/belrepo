@@ -12,6 +12,8 @@ namespace Bel.DataLayer
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class beldatabaseEntities : DbContext
     {
@@ -33,5 +35,7 @@ namespace Bel.DataLayer
         public virtual DbSet<Reservation> Reservation { get; set; }
         public virtual DbSet<Gallery> Gallery { get; set; }
         public virtual DbSet<News> News { get; set; }
+        public virtual DbSet<About> About { get; set; }
+        public virtual DbSet<Contact> Contact { get; set; }
     }
 }

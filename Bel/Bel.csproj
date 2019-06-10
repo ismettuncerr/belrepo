@@ -213,6 +213,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BaseClass.cs" />
+    <Compile Include="Models\SiteManagementViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Models\AppointmentViewModel.cs" />
     <Compile Include="Models\NewsViewModel.cs" />
@@ -726,13 +727,12 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\News\EditNew.cshtml" />
     <Content Include="Views\Appointment\DetailReservation.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\gallery\" />
     <Folder Include="Content\news\" />
-    <Folder Include="Views\BaseApi\" />
-    <Folder Include="Views\Randevu\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\.DS_Store" />
@@ -817,7 +817,6 @@
     <None Include="packages.config" />
     <Content Include="Scripts\.DS_Store" />
     <Content Include="Scripts\Scripts.zip" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Appointment\Index.cshtml" />
     <Content Include="Views\Login\Appointment.cshtml" />

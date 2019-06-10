@@ -1,6 +1,4 @@
-
-﻿using Bel.DataLayer.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Bel.DataLayer.Interfaces
 {
-    public interface INewsRepository : IGenericRepository<News>
+    public interface IContactRepository : IGenericRepository<Contact>
     {
-        void Edit(News news);
+        void Edit(Contact contact);
     }
 }

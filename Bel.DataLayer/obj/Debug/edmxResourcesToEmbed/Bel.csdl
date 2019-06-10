@@ -42,6 +42,12 @@
     <EntitySet Name="Reservation" EntityType="beldatabaseModel.Reservation" />
     <EntitySet Name="Gallery" EntityType="beldatabaseModel.Gallery" />
     <EntitySet Name="News" EntityType="beldatabaseModel.News" />
+    <EntitySet Name="About" EntityType="beldatabaseModel.About" />
+    <EntitySet Name="Contact" EntityType="beldatabaseModel.Contact" />
+    <FunctionImport Name="ReservationClassHour" ReturnType="Collection(beldatabaseModel.ReservationClassHour_Result)">
+      <Parameter Name="MunicipalityClassId" Mode="In" Type="Int32" />
+      <Parameter Name="ReservationDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="ClassHour">
     <Key>
@@ -85,4 +91,38 @@
     <Property Name="NewsContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="NewsDate" Type="DateTime" Precision="3" />
   </EntityType>
+  <EntityType Name="About">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AboutDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CityState" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EMailDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="ReservationClassHour_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="Hour" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="RefMunicipalityClassId" Nullable="true" />
+    <Property Type="Int32" Name="Id1" Nullable="true" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="AdvisorName" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="RefUserId" Nullable="true" />
+    <Property Type="Int32" Name="RefMunicipalityClassId1" Nullable="true" />
+    <Property Type="Int32" Name="RefSchoolId" Nullable="true" />
+    <Property Type="Int32" Name="RefClassHourId" Nullable="true" />
+    <Property Type="String" Name="StudentsJson" Nullable="true" />
+    <Property Type="DateTime" Name="ReservationDate" Nullable="true" Precision="23" />
+  </ComplexType>
 </Schema>

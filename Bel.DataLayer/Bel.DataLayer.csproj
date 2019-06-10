@@ -54,6 +54,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.cs">
+      <DependentUpon>bel.tt</DependentUpon>
+    </Compile>
     <Compile Include="bel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -72,16 +75,22 @@
     <Compile Include="ClassHour.cs">
       <DependentUpon>bel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Contact.cs">
+      <DependentUpon>bel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataClient.cs" />
     <Compile Include="Gallery.cs">
       <DependentUpon>bel.tt</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IGalleryRepository.cs" />
+    <Compile Include="Interfaces\IAboutRepository.cs" />
+    <Compile Include="Interfaces\IContactRepository.cs" />
     <Compile Include="Interfaces\INewsRepository.cs" />
     <Compile Include="Interfaces\IUserRoleRepository.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Interfaces\ISchoolClassRepository.cs" />
+    <Compile Include="Model\ReservationClassHour.cs" />
     <Compile Include="Model\ReservationModel.cs" />
     <Compile Include="Model\SchoolClassModel.cs" />
     <Compile Include="MunicipalityClass.cs">
@@ -91,12 +100,14 @@
       <DependentUpon>bel.tt</DependentUpon>
     </Compile>
     <Compile Include="Repository\ClassHourRepository.cs" />
+    <Compile Include="Repository\ContactRepository.cs" />
     <Compile Include="Repository\GalleryRepository.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
     <Compile Include="Repository\MunicipalityClassRepository.cs" />
     <Compile Include="Repository\NewsRepository.cs" />
     <Compile Include="Repository\ReservationRepository.cs" />
     <Compile Include="Repository\SchoolClassRepository.cs" />
+    <Compile Include="Repository\AboutRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Repository\UserRoleRepository.cs" />
     <Compile Include="Reservation.cs">

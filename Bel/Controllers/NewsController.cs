@@ -118,7 +118,7 @@ namespace Bel.Controllers
                     dataClient.NewsRepository.Save();
                 }
             }
-            return View();
+            return RedirectToAction("News", "News");
         }
     }
 }
