@@ -594,6 +594,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="img\about-img.jpg" />
+    <Content Include="img\ara.png" />
     <Content Include="img\b1.jpg" />
     <Content Include="img\b2.jpg" />
     <Content Include="img\b3.jpg" />
@@ -656,6 +657,7 @@
     <Content Include="img\elements\user1.png" />
     <Content Include="img\elements\user2.png" />
     <Content Include="img\event-details-img.jpg" />
+    <Content Include="img\fuatsezgin.png" />
     <Content Include="img\gallery\g1.jpg" />
     <Content Include="img\gallery\g2.jpg" />
     <Content Include="img\gallery\g3.jpg" />
@@ -665,6 +667,7 @@
     <Content Include="img\gallery\g7.jpg" />
     <Content Include="img\iletisimbanner-481.jpg" />
     <Content Include="img\logo.png" />
+    <Content Include="img\logo1.png" />
     <Content Include="img\m-img.jpg" />
     <Content Include="img\p1.jpg" />
     <Content Include="img\p2.jpg" />
