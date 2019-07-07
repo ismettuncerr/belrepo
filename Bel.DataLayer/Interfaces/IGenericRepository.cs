@@ -11,7 +11,7 @@ namespace Bel.DataLayer.Interfaces
     {
         IEnumerable<T> GetAll();
         void Add(T entity);
-        void Delete(int id);
+        bool Delete(int id);
         //void Edit(T entity);
         void Save();
         T Get(int id);

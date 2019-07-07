@@ -11,4 +11,10 @@ namespace Bel.Models
         public string name { get; set; }
         public string surName { get; set; }
     }
+    public class StudentListsViewModel
+    {
+        public List<StudentListViewModel> StudentList { get; set; }
+       
+    }
+
 }

@@ -728,6 +728,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Site\Index.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\News\EditNew.cshtml" />
+    <Content Include="Views\Appointment\DetailReservation.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>

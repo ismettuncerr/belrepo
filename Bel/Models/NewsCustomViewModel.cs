@@ -8,6 +8,7 @@ namespace Bel.Models
 {
     public class NewsCustomViewModel
     {
+        public int Id { get; set; }
         public string NewsHeadline { get; set; }
         public IEnumerable<HttpPostedFileBase> NewsImage { get; set; }
         [AllowHtml]

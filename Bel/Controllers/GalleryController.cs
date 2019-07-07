@@ -11,11 +11,8 @@ using System.Web.Mvc;
 namespace Bel.Controllers
 {
     [Authorize(Roles = "Admin")]
-    public class GalleryController : Controller
+    public class GalleryController : BaseController
     {
-        // GET: Gallery
-        GalleryRepository galleryRepository = new GalleryRepository();
-
         [AllowAnonymous]
         public ActionResult Index()
         {
@@ -28,6 +25,23 @@ namespace Bel.Controllers
         {
             var galleries = new GalleryViewModel();
             return View(galleries);
+        }
+        public ActionResult DeleteGallery(int id)
+        {
+            var fileDetail = dataClient.GalleryRepository.Get(id);
+            var result = dataClient.GalleryRepository.Delete(id);
+            if (result)
+            {
+                var filePath = Server.MapPath($"~/Content/gallery/" + fileDetail.PhotoName);
+                if (System.IO.File.Exists(filePath))
+                    System.IO.File.Delete(filePath);
+                return RedirectToAction("Gallery");
+            }
+            else
+            {
+                TempData["message"] = "Kayıt Silinemedi..";
+                return RedirectToAction("Gallery");
+            }
         }
 
         public ActionResult GalleryCreate()
@@ -48,8 +62,8 @@ namespace Bel.Controllers
                     item.SaveAs(Server.MapPath($"~/Content/gallery/{guid + item.FileName}"));//resim klasörüne resimleri kaydetme
                     Gallery gallery = new Gallery();
                     gallery.PhotoName = guid + item.FileName;
-                    galleryRepository.Add(gallery);
-                    galleryRepository.Save();
+                    dataClient.GalleryRepository.Add(gallery);
+                    dataClient.GalleryRepository.Save();
                     //resim.Adi = item.FileName;
                     //db.Resim.Add(resim);
                 }

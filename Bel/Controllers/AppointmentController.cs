@@ -21,7 +21,7 @@ namespace Bel.Controllers
         AppointmentViewModel appointmentViewModel = new AppointmentViewModel();
         //ReservationRepository reservationRepository = new ReservationRepository();
 
-        
+
 
         public FormsAuthenticationTicket ticket()
         {
@@ -40,10 +40,10 @@ namespace Bel.Controllers
         [Authorize(Roles = "Guest")]
         public ActionResult Appointment()
         {
-            
+
             appointmentViewModel.municipalities = userList();
             appointmentViewModel.schoolClasses = schoolClass(Convert.ToInt32(ticket().Name));
-            if (TempData["shortMessage"]!=null)
+            if (TempData["shortMessage"] != null)
             {
                 ViewBag.Message = TempData["shortMessage"].ToString();
             }
@@ -55,6 +55,23 @@ namespace Bel.Controllers
             var result = dataClient.ReservationRepository.DeleteReservation(id);
             return RedirectToAction("Index");
         }
+        public ActionResult DetailReservation(int id)
+        {
+            StudentListsViewModel studentListsViewModel = new StudentListsViewModel();
+            var studentJson = dataClient.ReservationRepository.Get(id).StudentsJson;
+            if (studentJson != null)
+            {
+                var jsonSerialiser = new JavaScriptSerializer();
+                studentListsViewModel.StudentList = jsonSerialiser.Deserialize<List<StudentListViewModel>>(studentJson);
+            }
+            else
+            {
+                ViewBag.StudentsList = "Öğrenci Listesi Boş..";
+            }
+
+            return View(studentListsViewModel);
+        }
+
 
         public ActionResult ActiveAppointment()
         {
@@ -76,6 +93,8 @@ namespace Bel.Controllers
             var pastReservations = new PastReservationViewModel();
             return View(pastReservations);
         }
+
+
 
         /*[HttpPost]
         public ActionResult Appointment(FormCollection collection)
@@ -172,7 +191,7 @@ namespace Bel.Controllers
             reservation.StudentsJson = studentJson;
             reservation.RefUserId = Convert.ToInt32(ticket().Name);
             reservation.RefSchoolId = reservationCustomViewModel.schoolClassId;
-            reservation.ReservationDate = DateTime.Parse(reservationCustomViewModel.datepicker);            
+            reservation.ReservationDate = DateTime.Parse(reservationCustomViewModel.datepicker);
             TempData["shortMessage"] = dataClient.ReservationRepository.saveReservation(reservation);
             return RedirectToAction("Appointment", "Appointment");
 

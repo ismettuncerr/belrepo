@@ -44,7 +44,7 @@
                                         <td>@item.MunicipalityClassName</td>
                                         <td>@item.SchoolClassName</td>
                                         <td>@item.Hour</td>
-                                        <td><input class="btn btn-warning btnSubmit" type="submit" value="Detay" /></td>
+                                        <td>@Html.ActionLink("Detay", "DetailReservation", new { id = item.Id }, new { @class = "btn btn-warning" })</td>
                                         @*<td>@Html.ActionLink("Sil", "DeleteReservation", new { id = item.Id }, new { @class = "btn btn-danger" })</td>*@
                                         <!--<td>@Html.ActionLink("Detail", "DetailReservation", new { id = item.Id }, new { @class = "btn btn-warning" })</td>-->
                                     </tr>
@@ -60,6 +60,15 @@
 <br />
 <br />
 <br />
+
+<link href="~/Content/paging.css" rel="stylesheet" />
+<script src="~/Scripts/paging.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#tbldata').paging({ limit: 5 });
+    })
+</script>
+
 
 
 

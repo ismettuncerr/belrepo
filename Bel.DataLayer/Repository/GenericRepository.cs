@@ -24,10 +24,17 @@ namespace Bel.DataLayer.Repository
             entities.Add(entity);
         }
 
-        public void Delete(int id)
+        public bool Delete(int id)
         {
             var result = entities.Find(id);
-            entities.Remove(result);
+            if (result != null)
+            {
+                entities.Remove(result);
+                Save();
+                return true;
+            }
+            else
+                return false;
         }
 
         //public void Edit(T entity)

@@ -19,7 +19,7 @@
 </section>
 <section class="events-list-area section-gap event-page-lists">
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-center" >
             @foreach (var item in Model.News)
             {
                 <div class="col-lg-6 pb-30">
@@ -35,7 +35,7 @@
                                 </h4>
                             </a>
                             <p>
-                                @(new HtmlString(@item.NewsBrief))                                
+                                @(new HtmlString(@item.NewsBrief))
                             </p>
                         </div>
                     </div>
@@ -44,3 +44,10 @@
         </div>
     </div>
 </section>
+<link href="~/Content/paging.css" rel="stylesheet" />
+<script src="~/Scripts/paging.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#tbldata').paging({ limit: 1 });
+    })
+</script>

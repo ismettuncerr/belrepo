@@ -10,13 +10,12 @@ namespace Bel.Models
 {
     public class GalleryViewModel : BaseClass
     {
-        GalleryRepository galleryRepository = new GalleryRepository();
         public List<Gallery> Galleries { get; set; }
 
         public GalleryViewModel()
         {
             Galleries = new List<Gallery>();
-            Galleries = galleryRepository.GetAll().ToList();
+            Galleries = dataClient.GalleryRepository.GetAll().ToList();
         }
     }
 }
