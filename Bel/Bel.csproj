@@ -668,6 +668,7 @@
     <Content Include="img\iletisimbanner-481.jpg" />
     <Content Include="img\logo.png" />
     <Content Include="img\logo1.png" />
+    <Content Include="img\logo2.png" />
     <Content Include="img\m-img.jpg" />
     <Content Include="img\p1.jpg" />
     <Content Include="img\p2.jpg" />
@@ -689,7 +690,9 @@
     <Content Include="Scripts\jquery.tabs.min.js" />
     <Content Include="bin\ApplicationInsights.config" />
     <Content Include="bin\Bel.DataLayer.dll.config" />
-    <Content Include="bin\Bel.dll.config" />
+    <Content Include="bin\Bel.dll.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="bin\roslyn\csc.exe.config" />
     <Content Include="bin\roslyn\csc.rsp" />
     <Content Include="bin\roslyn\csi.exe.config" />
