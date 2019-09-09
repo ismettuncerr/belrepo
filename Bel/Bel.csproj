@@ -205,6 +205,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\SiteController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -213,6 +214,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BaseClass.cs" />
+    <Compile Include="Models\MenuViewModel.cs" />
+    <Compile Include="Models\MenuCustomViewModel.cs" />
     <Compile Include="Models\SiteManagementViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Models\AppointmentViewModel.cs" />
@@ -734,6 +737,10 @@
     <Content Include="Views\News\EditNew.cshtml" />
     <Content Include="Views\Appointment\DetailReservation.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Menu\Index.cshtml" />
+    <Content Include="Views\Menu\Menu.cshtml" />
+    <Content Include="Views\Menu\EditMenu.cshtml" />
+    <Content Include="Views\Menu\MenuCreate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

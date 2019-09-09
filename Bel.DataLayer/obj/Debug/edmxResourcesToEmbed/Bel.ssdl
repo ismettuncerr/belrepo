@@ -36,6 +36,19 @@
     <Property Name="PhotoName" Type="nvarchar" MaxLength="750" />
     <Property Name="PhotoUrl" Type="nvarchar" MaxLength="4000" />
   </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsVisible" Type="bit" />
+    <Property Name="Header" Type="nvarchar(max)" />
+    <Property Name="Row" Type="int" />
+    <Property Name="Image" Type="nvarchar(max)" />
+    <Property Name="Detail" Type="nvarchar(max)" />
+    <Property Name="Link" Type="nvarchar(max)" />
+    <Property Name="LinkType" Type="int" />
+  </EntityType>
   <EntityType Name="MunicipalityClass">
     <Key>
       <PropertyRef Name="Id" />
@@ -99,6 +112,7 @@
     <EntitySet Name="ClassHour" EntityType="Self.ClassHour" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Gallery" EntityType="Self.Gallery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MunicipalityClass" EntityType="Self.MunicipalityClass" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Reservation" EntityType="Self.Reservation" Schema="dbo" store:Type="Tables" />

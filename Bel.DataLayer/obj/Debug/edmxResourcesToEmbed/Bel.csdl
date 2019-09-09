@@ -48,6 +48,7 @@
       <Parameter Name="MunicipalityClassId" Mode="In" Type="Int32" />
       <Parameter Name="ReservationDate" Mode="In" Type="DateTime" />
     </FunctionImport>
+    <EntitySet Name="Menu" EntityType="beldatabaseModel.Menu" />
   </EntityContainer>
   <EntityType Name="ClassHour">
     <Key>
@@ -125,4 +126,17 @@
     <Property Type="String" Name="StudentsJson" Nullable="true" />
     <Property Type="DateTime" Name="ReservationDate" Nullable="true" Precision="23" />
   </ComplexType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IsVisible" Type="Boolean" />
+    <Property Name="Header" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Row" Type="Int32" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LinkType" Type="Int32" />
+  </EntityType>
 </Schema>

@@ -41,6 +41,19 @@
           <Property Name="PhotoName" Type="nvarchar" MaxLength="750" />
           <Property Name="PhotoUrl" Type="nvarchar" MaxLength="4000" />
         </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsVisible" Type="bit" />
+          <Property Name="Header" Type="nvarchar(max)" />
+          <Property Name="Row" Type="int" />
+          <Property Name="Image" Type="nvarchar(max)" />
+          <Property Name="Detail" Type="nvarchar(max)" />
+          <Property Name="Link" Type="nvarchar(max)" />
+          <Property Name="LinkType" Type="int" />
+        </EntityType>
         <EntityType Name="MunicipalityClass">
           <Key>
             <PropertyRef Name="Id" />
@@ -104,6 +117,7 @@
           <EntitySet Name="ClassHour" EntityType="Self.ClassHour" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Gallery" EntityType="Self.Gallery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MunicipalityClass" EntityType="Self.MunicipalityClass" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reservation" EntityType="Self.Reservation" Schema="dbo" store:Type="Tables" />
@@ -163,6 +177,7 @@
             <Parameter Name="MunicipalityClassId" Mode="In" Type="Int32" />
             <Parameter Name="ReservationDate" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <EntitySet Name="Menu" EntityType="beldatabaseModel.Menu" />
         </EntityContainer>
         <EntityType Name="ClassHour">
           <Key>
@@ -240,6 +255,19 @@
           <Property Type="String" Name="StudentsJson" Nullable="true" />
           <Property Type="DateTime" Name="ReservationDate" Nullable="true" Precision="23" />
         </ComplexType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsVisible" Type="Boolean" />
+          <Property Name="Header" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Row" Type="Int32" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LinkType" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -346,6 +374,20 @@
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="CityState" ColumnName="CityState" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menu">
+            <EntityTypeMapping TypeName="beldatabaseModel.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="LinkType" ColumnName="LinkType" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Row" ColumnName="Row" />
+                <ScalarProperty Name="Header" ColumnName="Header" />
+                <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

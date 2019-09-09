@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("jquery-2.2.4.min");
+<section class="banner-area relative about-banner" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white">
+                    Menüler
+                </h1>
+
+            </div>
+        </div>
+    </div>
+</section>
+<section class="events-list-area section-gap event-page-lists">
+    <div class="container">
+        <div class="row align-items-center">
+            @foreach (var item in Model.Menus)
+            {
+                <div class="col-lg-6 pb-30">
+                    <div class="single-carusel row align-items-center">
+                        <div class="col-12 col-md-6 thumb">
+                            <img class="img-fluid" src="~/Content/news/@item.Image" height="255" />
+                        </div>
+                        <div class="detials col-12 col-md-6">
+                            <p>@item.NewsDate.ToString("dd.MM.yyyy")</p>
+                            <a href="/News/NewsDetail/@item.Id">
+                                <h4>
+                                    @item.NewsHeadline
+                                </h4>
+                            </a>
+                            <p>
+                                @(new HtmlString(@item.NewsBrief))
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<link href="~/Content/paging.css" rel="stylesheet" />
+<script src="~/Scripts/paging.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#tbldata').paging({ limit: 1 });
+    })
+</script>
+
+

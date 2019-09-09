@@ -10,6 +10,7 @@ namespace Bel.Models
 {
     public class ReservationCustomViewModel
     {
+        public int UserId { get; set; }
         public int municipalityClassId { get; set; }
         public int schoolClassId { get; set; }
         public string datepicker { get; set; }

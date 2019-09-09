@@ -37,5 +37,19 @@ namespace Bel.DataLayer
         public virtual DbSet<News> News { get; set; }
         public virtual DbSet<About> About { get; set; }
         public virtual DbSet<Contact> Contact { get; set; }
+        public virtual DbSet<Menu> Menu { get; set; }
+    
+        public virtual ObjectResult<ReservationClassHour_Result> ReservationClassHour(Nullable<int> municipalityClassId, Nullable<System.DateTime> reservationDate)
+        {
+            var municipalityClassIdParameter = municipalityClassId.HasValue ?
+                new ObjectParameter("MunicipalityClassId", municipalityClassId) :
+                new ObjectParameter("MunicipalityClassId", typeof(int));
+    
+            var reservationDateParameter = reservationDate.HasValue ?
+                new ObjectParameter("ReservationDate", reservationDate) :
+                new ObjectParameter("ReservationDate", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ReservationClassHour_Result>("ReservationClassHour", municipalityClassIdParameter, reservationDateParameter);
+        }
     }
 }
