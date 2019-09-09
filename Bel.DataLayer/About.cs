@@ -16,5 +16,7 @@ namespace Bel.DataLayer
     {
         public int Id { get; set; }
         public string AboutDetail { get; set; }
+        public Nullable<int> ContentType { get; set; }
+        public string Header { get; set; }
     }
 }

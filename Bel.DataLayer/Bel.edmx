@@ -11,6 +11,8 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AboutDetail" Type="nvarchar(max)" />
+          <Property Name="ContentType" Type="int" />
+          <Property Name="Header" Type="nvarchar" MaxLength="350" />
         </EntityType>
         <EntityType Name="ClassHour">
           <Key>
@@ -82,6 +84,14 @@
           <Property Name="Name" Type="nvarchar" MaxLength="400" />
           <Property Name="RefUserId" Type="int" />
         </EntityType>
+        <EntityType Name="Slider">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PhotoName" Type="nvarchar" MaxLength="1000" />
+          <Property Name="SortOrder" Type="int" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
@@ -108,6 +118,7 @@
           <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reservation" EntityType="Self.Reservation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SchoolClass" EntityType="Self.SchoolClass" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Slider" EntityType="Self.Slider" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -157,12 +168,13 @@
           <EntitySet Name="Reservation" EntityType="beldatabaseModel.Reservation" />
           <EntitySet Name="Gallery" EntityType="beldatabaseModel.Gallery" />
           <EntitySet Name="News" EntityType="beldatabaseModel.News" />
-          <EntitySet Name="About" EntityType="beldatabaseModel.About" />
           <EntitySet Name="Contact" EntityType="beldatabaseModel.Contact" />
           <FunctionImport Name="ReservationClassHour" ReturnType="Collection(beldatabaseModel.ReservationClassHour_Result)">
             <Parameter Name="MunicipalityClassId" Mode="In" Type="Int32" />
             <Parameter Name="ReservationDate" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <EntitySet Name="Slider" EntityType="beldatabaseModel.Slider" />
+          <EntitySet Name="About" EntityType="beldatabaseModel.About" />
         </EntityContainer>
         <EntityType Name="ClassHour">
           <Key>
@@ -206,13 +218,6 @@
           <Property Name="NewsContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="NewsDate" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityType Name="About">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AboutDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="Contact">
           <Key>
             <PropertyRef Name="Id" />
@@ -240,6 +245,23 @@
           <Property Type="String" Name="StudentsJson" Nullable="true" />
           <Property Type="DateTime" Name="ReservationDate" Nullable="true" Precision="23" />
         </ComplexType>
+        <EntityType Name="Slider">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PhotoName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="SortOrder" Type="Int32" />
+        </EntityType>
+        <EntityType Name="About">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AboutDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ContentType" Type="Int32" />
+          <Property Name="Header" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -329,14 +351,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="About">
-            <EntityTypeMapping TypeName="beldatabaseModel.About">
-              <MappingFragment StoreEntitySet="About">
-                <ScalarProperty Name="AboutDetail" ColumnName="AboutDetail" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Contact">
             <EntityTypeMapping TypeName="beldatabaseModel.Contact">
               <MappingFragment StoreEntitySet="Contact">
@@ -346,6 +360,25 @@
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="CityState" ColumnName="CityState" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Slider">
+            <EntityTypeMapping TypeName="beldatabaseModel.Slider">
+              <MappingFragment StoreEntitySet="Slider">
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="PhotoName" ColumnName="PhotoName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="About">
+            <EntityTypeMapping TypeName="beldatabaseModel.About">
+              <MappingFragment StoreEntitySet="About">
+                <ScalarProperty Name="Header" ColumnName="Header" />
+                <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+                <ScalarProperty Name="AboutDetail" ColumnName="AboutDetail" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

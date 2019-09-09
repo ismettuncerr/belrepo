@@ -16,7 +16,10 @@ namespace Bel.Controllers
         public ActionResult Index()
         {
             var news = dataClient.NewsRepository.GetAll().OrderByDescending(x=> x.Id).Take(8).ToList();
-            return View(news);
+            var slider = dataClient.SliderRepository.GetAll().OrderByDescending(x=> x.SortOrder).Take(3).ToList();
+            siteManagementViewModel.home.news = dataClient.NewsRepository.GetAll().OrderByDescending(x => x.Id).Take(8).ToList();
+            siteManagementViewModel.home.slider = dataClient.SliderRepository.GetAll().OrderByDescending(x => x.SortOrder).Take(3).ToList();
+            return View(siteManagementViewModel);
         }
         public ActionResult Contact()
         {
@@ -24,9 +27,10 @@ namespace Bel.Controllers
             return View(siteManagementViewModel);
         }
 
-        public ActionResult About()
+        public ActionResult About(int id)
         {
-            siteManagementViewModel.about = dataClient.AboutRepository.GetAll().FirstOrDefault();
+            var contentType = id;
+            siteManagementViewModel.about = dataClient.AboutRepository.GetAll().Where(x=>x.ContentType==contentType).FirstOrDefault();
             ViewData["myInnerHtml"] = siteManagementViewModel.about.AboutDetail;
             return View(siteManagementViewModel);
         }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace Bel.Controllers
 {
@@ -33,6 +34,12 @@ namespace Bel.Controllers
         {
             dataClient.ContactRepository.Edit(contact);
             return RedirectToAction("Index", "Site");
+        }
+
+        [HttpPost]
+        public string GetContent(int ContentType)
+        {            
+            return new JavaScriptSerializer().Serialize(dataClient.AboutRepository.GetContent(ContentType));
         }
     }
 }

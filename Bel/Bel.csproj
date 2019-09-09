@@ -201,6 +201,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\SliderController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -213,6 +214,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BaseClass.cs" />
+    <Compile Include="Models\ContentTypeEnum.cs" />
+    <Compile Include="Models\AboutCustomViewModel.cs" />
+    <Compile Include="Models\HomeCustomViewModel.cs" />
+    <Compile Include="Models\SliderCustomViewModel.cs" />
+    <Compile Include="Models\SliderViewModel.cs" />
     <Compile Include="Models\SiteManagementViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Models\AppointmentViewModel.cs" />
@@ -423,6 +429,7 @@
     <Content Include="Content\bootstrap\bootstrap.css" />
     <Content Include="Content\css\main.css" />
     <Content Include="Content\css\util.css" />
+    <Content Include="Content\CustomMenu.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\linearicons.css" />
@@ -669,6 +676,8 @@
     <Content Include="img\logo.png" />
     <Content Include="img\logo1.png" />
     <Content Include="img\logo2.png" />
+    <Content Include="img\logo3.png" />
+    <Content Include="img\baskan.jpg" />
     <Content Include="img\m-img.jpg" />
     <Content Include="img\p1.jpg" />
     <Content Include="img\p2.jpg" />
@@ -677,6 +686,9 @@
     <Content Include="img\play.png" />
     <Content Include="img\s-bg.jpg" />
     <Content Include="img\search-bg.jpg" />
+    <Content Include="img\slider\chicago.jpg" />
+    <Content Include="img\slider\la.jpg" />
+    <Content Include="img\slider\ny.jpg" />
     <Content Include="img\top-banner.jpg" />
     <Content Include="img\video-bg.jpg" />
     <Content Include="Scripts\easing.min.js" />
@@ -734,11 +746,17 @@
     <Content Include="Views\News\EditNew.cshtml" />
     <Content Include="Views\Appointment\DetailReservation.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Shared\Slider.cshtml" />
+    <Content Include="Views\Gallery\Slider.cshtml" />
+    <Content Include="Views\Slider\Index.cshtml" />
+    <Content Include="Views\Slider\Slider.cshtml" />
+    <Content Include="Views\Slider\SliderCreate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\gallery\" />
     <Folder Include="Content\news\" />
+    <Folder Include="Content\slider\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\.DS_Store" />

@@ -47,5 +47,8 @@ namespace Bel.DataLayer
 
         private Lazy<IContactRepository> lazyContactRepository = new Lazy<IContactRepository>(() => new ContactRepository(new beldatabaseEntities()));
         public IContactRepository ContactRepository { get { return lazyContactRepository.Value; } }
+
+        private Lazy<ISliderRepository> lazySliderRepository = new Lazy<ISliderRepository>(() => new SliderRepository(new beldatabaseEntities()));
+        public ISliderRepository SliderRepository { get { return lazySliderRepository.Value; } }
     }
 }

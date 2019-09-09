@@ -16,9 +16,15 @@ namespace Bel.DataLayer.Repository
         }
         public void Edit(About about)
         {
-            var result = context.Set<About>().FirstOrDefault();
+            var result = context.Set<About>().Where(x=>x.ContentType==about.ContentType).FirstOrDefault();
             result.AboutDetail = about.AboutDetail;
+            result.Header = about.Header;
             context.SaveChanges();
+        }
+        public About GetContent(int ContentType)
+        {
+            var result = context.Set<About>().Where(x => x.ContentType == ContentType).FirstOrDefault();
+            return result;
         }
     }
 }

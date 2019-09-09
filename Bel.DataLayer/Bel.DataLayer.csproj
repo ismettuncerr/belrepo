@@ -82,6 +82,7 @@
     <Compile Include="Gallery.cs">
       <DependentUpon>bel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\ISliderRepository.cs" />
     <Compile Include="Interfaces\IGalleryRepository.cs" />
     <Compile Include="Interfaces\IAboutRepository.cs" />
     <Compile Include="Interfaces\IContactRepository.cs" />
@@ -101,6 +102,7 @@
     </Compile>
     <Compile Include="Repository\ClassHourRepository.cs" />
     <Compile Include="Repository\ContactRepository.cs" />
+    <Compile Include="Repository\SliderRepository.cs" />
     <Compile Include="Repository\GalleryRepository.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
     <Compile Include="Repository\MunicipalityClassRepository.cs" />
@@ -113,7 +115,13 @@
     <Compile Include="Reservation.cs">
       <DependentUpon>bel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ReservationClassHour_Result.cs">
+      <DependentUpon>bel.tt</DependentUpon>
+    </Compile>
     <Compile Include="SchoolClass.cs">
+      <DependentUpon>bel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Slider.cs">
       <DependentUpon>bel.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
@@ -129,7 +137,9 @@
     <Compile Include="Interfaces\IReservationRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <EntityDeploy Include="bel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>bel.Designer.cs</LastGenOutput>

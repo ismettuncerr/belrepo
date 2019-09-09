@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="~/Content/owl.carousel.css">
     <link rel="stylesheet" href="~/Content/jquery-ui.css">
     <link rel="stylesheet" href="~/Content/main.css">
+    <link rel="stylesheet" href="~/Content/CustomMenu.css">
 
     <link rel="icon" type="image/png" href="login/images/icons/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="~/Content/vendor/bootstrap/css/bootstrap.min.css" />
@@ -51,8 +52,11 @@
     <link rel="stylesheet" type="text/css" href="~/Content/vendor/daterangepicker/daterangepicker.css">
     <link rel="stylesheet" type="text/css" href="~/Content/css/util.css">
     <link rel="stylesheet" type="text/css" href="~/Content/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="~/Scripts/vendor/jquery-2.2.4.min.js"></script>
     <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
     <script src="~/Scripts/jquery-ui.min.js"></script>
@@ -78,22 +82,38 @@
                         @if (!User.IsInRole("Guest") && !User.IsInRole("Admin"))
                         {
                             <a href="/Login"><span class="lnr lnr-envelope"></span> <span class="text">Kullanıcı Girişi</span></a>
+                        }else
+                        {
+                            <a href="/Login/Logout">Çıkış</a>
                         }
                     </div>
                 </div>
             </div>
         </div>
         <div class="container main-menu">
-            <div class="row align-items-center justify-content-between d-flex">
+            <div class="row align-items-center justify-content-between d-flex" style="margin-left:-270px; margin-right:-270px">
                 <div id="logo">
-                    <a href="/Home"><img src="~/img/logo2.png" width="200" alt="" title="" /></a>
+                    <a href="/Home"><img src="~/img/logo3.png" height="78" alt="" title="" /></a>
                 </div>
+                <div style="margin-left:-130px;">
+                    <div class="nav-menu-container">
+                        <h4 style="font-size:12px; color:#ffffff;font-family:Georgia"><i>Büyüleyici Bir Bilim Serüvenine Hazır Mısınız?</i></h4>
+                    </div>
+                </div>
+
                 <nav id="nav-menu-container">
                     <ul class="nav-menu">
                         <li><a href="/Home/Index">Anasayfa</a></li>
-                        <li><a href="/Home/About">Hakkımızda</a></li>
+                        <li><a href="/Home/About/1">Hakkımızda</a></li>
+                        <li><a href="/Home/About/12">Bilim Merkezi</a></li>
                         <li><a href="/News/">Haberler</a></li>
-                        <li><a href="/Appointment/Appointment">Randevu Al</a></li>
+
+                        @if (!User.IsInRole("Admin"))
+                        {
+                            <li><a href="/Appointment/Appointment">Okul Randevuları</a></li>
+                        }
+                        <li><a href="/Gallery/">Galeri</a></li>
+                        <li><a href="/Home/Contact">İletişim</a></li>
                         @if (User.IsInRole("Guest"))
                         {
                             <li class="menu-has-children">
@@ -116,21 +136,19 @@
                                     <li><a href="/User/Index">Kullanıcı Yönetimi</a></li>
                                     <li><a href="/News/News">Haber Yönetimi</a></li>
                                     <li><a href="/Gallery/Gallery">Galeri Yönetimi</a></li>
+                                    <li><a href="/Slider/Slider">Slider Yönetimi</a></li>
 
                                 </ul>
                             </li>
                         }
-                        <li><a href="/Gallery/">Galeri</a></li>
-                        <li><a href="/Home/Contact">İletişim</a></li>
-                        @if (User.IsInRole("Guest") || User.IsInRole("Admin"))
-                        {
-                            <li><a href="/Login/Logout">Çıkış</a></li>
-                        }
+
                     </ul>
+
                 </nav><!-- #nav-menu-container -->
             </div>
         </div>
-    </header><!-- #header -->
+    </header>
+    <!-- #header -->
     <!-- start banner Area
     <section class="banner-area relative" id="home">
         <div class="overlay overlay-bg"></div>
@@ -149,9 +167,7 @@
             </div>
         </div>
     </section>-->
-
     @RenderBody()
-
 
     <footer class="footer-area section-gap">
         <div class="container">
@@ -200,7 +216,7 @@
                         </ul>
                     </div>
                 </div>
-               
+
             </div>
             <div class="footer-bottom row align-items-center justify-content-between">
                 <p class="footer-text m-0 col-lg-6 col-md-12">
