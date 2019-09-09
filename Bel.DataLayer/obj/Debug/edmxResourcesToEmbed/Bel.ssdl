@@ -6,6 +6,8 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="AboutDetail" Type="nvarchar(max)" />
+    <Property Name="ContentType" Type="int" />
+    <Property Name="Header" Type="nvarchar" MaxLength="350" />
   </EntityType>
   <EntityType Name="ClassHour">
     <Key>
@@ -90,6 +92,14 @@
     <Property Name="Name" Type="nvarchar" MaxLength="400" />
     <Property Name="RefUserId" Type="int" />
   </EntityType>
+  <EntityType Name="Slider">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PhotoName" Type="nvarchar" MaxLength="1000" />
+    <Property Name="SortOrder" Type="int" />
+  </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="Id" />
@@ -117,6 +127,7 @@
     <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Reservation" EntityType="Self.Reservation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SchoolClass" EntityType="Self.SchoolClass" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Slider" EntityType="Self.Slider" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
   </EntityContainer>

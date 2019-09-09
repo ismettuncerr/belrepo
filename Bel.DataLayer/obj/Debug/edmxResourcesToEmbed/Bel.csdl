@@ -42,13 +42,14 @@
     <EntitySet Name="Reservation" EntityType="beldatabaseModel.Reservation" />
     <EntitySet Name="Gallery" EntityType="beldatabaseModel.Gallery" />
     <EntitySet Name="News" EntityType="beldatabaseModel.News" />
-    <EntitySet Name="About" EntityType="beldatabaseModel.About" />
     <EntitySet Name="Contact" EntityType="beldatabaseModel.Contact" />
     <FunctionImport Name="ReservationClassHour" ReturnType="Collection(beldatabaseModel.ReservationClassHour_Result)">
       <Parameter Name="MunicipalityClassId" Mode="In" Type="Int32" />
       <Parameter Name="ReservationDate" Mode="In" Type="DateTime" />
     </FunctionImport>
     <EntitySet Name="Menu" EntityType="beldatabaseModel.Menu" />
+    <EntitySet Name="Slider" EntityType="beldatabaseModel.Slider" />
+    <EntitySet Name="About" EntityType="beldatabaseModel.About" />
   </EntityContainer>
   <EntityType Name="ClassHour">
     <Key>
@@ -92,13 +93,6 @@
     <Property Name="NewsContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="NewsDate" Type="DateTime" Precision="3" />
   </EntityType>
-  <EntityType Name="About">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="AboutDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-  </EntityType>
   <EntityType Name="Contact">
     <Key>
       <PropertyRef Name="Id" />
@@ -138,5 +132,22 @@
     <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="LinkType" Type="Int32" />
+     </EntityType>
+<EntityType Name="Slider">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />    
+    <Property Name="PhotoName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="SortOrder" Type="Int32" />
+  </EntityType>
+  <EntityType Name="About">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AboutDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ContentType" Type="Int32" />
+    <Property Name="Header" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

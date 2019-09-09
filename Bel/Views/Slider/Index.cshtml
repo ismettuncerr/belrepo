@@ -10,7 +10,7 @@
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12">
                 <h1 class="text-white">
-                    Galeri
+                    Slider
                 </h1>
 
             </div>
@@ -21,14 +21,14 @@
 <section class="gallery-area section-gap">
     <div class="container">
         <div class="row">
-            @foreach (var item in Model.Galleries)
+            @foreach (var item in Model.Sliders)
             {
                 <div class="col-lg-4">
-                    <a href="~/Content/gallery/@item.PhotoName" class="img-gal">
+                    <a href="~/Content/slider/@item.PhotoName" class="img-gal">
                         <div class="single-imgs relative">
                             <div class="overlay overlay-bg"></div>
                             <div class="relative">
-                                <img class="img-fluid" src="~/Content/gallery/@item.PhotoName" style="width:350px; height:auto;" alt="">
+                                <img class="img-fluid" src="~/Content/slider/@item.PhotoName" style="width:350px; height:auto;" alt="">
                             </div>
                         </div>
                     </a>

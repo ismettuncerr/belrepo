@@ -84,14 +84,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="About">
-      <EntityTypeMapping TypeName="beldatabaseModel.About">
-        <MappingFragment StoreEntitySet="About">
-          <ScalarProperty Name="AboutDetail" ColumnName="AboutDetail" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Contact">
       <EntityTypeMapping TypeName="beldatabaseModel.Contact">
         <MappingFragment StoreEntitySet="Contact">
@@ -115,6 +107,25 @@
           <ScalarProperty Name="Row" ColumnName="Row" />
           <ScalarProperty Name="Header" ColumnName="Header" />
           <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Slider">
+      <EntityTypeMapping TypeName="beldatabaseModel.Slider">
+        <MappingFragment StoreEntitySet="Slider">
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="PhotoName" ColumnName="PhotoName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="About">
+      <EntityTypeMapping TypeName="beldatabaseModel.About">
+        <MappingFragment StoreEntitySet="About">
+          <ScalarProperty Name="Header" ColumnName="Header" />
+          <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+          <ScalarProperty Name="AboutDetail" ColumnName="AboutDetail" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

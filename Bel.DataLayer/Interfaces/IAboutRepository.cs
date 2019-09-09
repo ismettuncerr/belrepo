@@ -9,5 +9,6 @@ namespace Bel.DataLayer.Interfaces
     public interface IAboutRepository: IGenericRepository<About>
     {
         void Edit(About about);
+        About GetContent(int ContentType);
     }
 }

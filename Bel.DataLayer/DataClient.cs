@@ -50,5 +50,8 @@ namespace Bel.DataLayer
 
         private Lazy<IMenuRepository> lazyMenuRepository = new Lazy<IMenuRepository>(() => new MenuRepository(new beldatabaseEntities()));
         public IMenuRepository MenuRepository { get { return lazyMenuRepository.Value; } }
+        
+        private Lazy<ISliderRepository> lazySliderRepository = new Lazy<ISliderRepository>(() => new SliderRepository(new beldatabaseEntities()));
+        public ISliderRepository SliderRepository { get { return lazySliderRepository.Value; } }
     }
 }

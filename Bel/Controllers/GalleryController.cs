@@ -26,6 +26,12 @@ namespace Bel.Controllers
             var galleries = new GalleryViewModel();
             return View(galleries);
         }
+
+        public ActionResult Slider()
+        {
+            var galleries = new GalleryViewModel();
+            return View(galleries);
+        }
         public ActionResult DeleteGallery(int id)
         {
             var fileDetail = dataClient.GalleryRepository.Get(id);

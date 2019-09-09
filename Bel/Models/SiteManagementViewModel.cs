@@ -10,5 +10,6 @@ namespace Bel.Models
     {
         public About about { get; set; }
         public Contact contact { get; set; }
+        public HomeCustomViewModel home = new HomeCustomViewModel();
     }
 }

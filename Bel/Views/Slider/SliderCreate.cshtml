@@ -10,7 +10,7 @@
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12">
                 <h1 class="text-white">
-                    Galeri Oluştur
+                    Slayt Oluştur
                 </h1>
 
             </div>
@@ -22,10 +22,15 @@
         <div class="row">
             <div class="col-lg-12 left-contents">
                 <div class="jq-tab-wrapper" id="horizontalTab">
-                    <form class="login100-form validate-form" action="/Gallery/GalleryCreate" method="post" enctype="multipart/form-data">
+                    <form class="login100-form validate-form" action="/Slider/SliderCreate" method="post" enctype="multipart/form-data">
+                        <div class="wrap-input100 validate-input m-b-18" data-validate="Sıra Numarası Giriniz">
+                            <span class="label-input100">Sıra Numarası</span>
+                            <input class="input100" type="text" name="SortOrder" maxlength="50" required placeholder="Sıra Numarası">
+                            <span class="focus-input100"></span>
+                        </div>
                         <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
                             <span class="label-input100">Danışman</span>
-                            <input type="file" multiple name="ResimDosya" id="ResimDosya" class="input100" />
+                            <input type="file" name="ResimDosya" id="ResimDosya" class="input100" />
                             <span class="focus-input100"></span>
                         </div>
 
@@ -39,7 +44,7 @@
                         </div>
 
                         <div class="container-login100-form-btn">
-                            <button type="submit" class="login100-form-btn">Galeriyi Kaydet</button>
+                            <button type="submit" class="login100-form-btn">Slider Kaydet</button>
                         </div>
                     </form>
                 </div>

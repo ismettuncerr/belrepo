@@ -12,11 +12,10 @@ namespace Bel.DataLayer
     using System;
     using System.Collections.Generic;
     
-    public partial class About
+    public partial class Slider
     {
         public int Id { get; set; }
-        public string AboutDetail { get; set; }
-        public Nullable<int> ContentType { get; set; }
-        public string Header { get; set; }
+        public string PhotoName { get; set; }
+        public Nullable<int> SortOrder { get; set; }
     }
 }
