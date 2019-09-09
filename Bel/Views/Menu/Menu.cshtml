@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Menu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("jquery-2.2.4.min");
+<section class="banner-area relative about-banner" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white">
+                    Menüler
+                </h1>
+
+            </div>
+        </div>
+    </div>
+</section>
+<section class="course-details-area pt-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 left-contents">
+                <div class="jq-tab-wrapper" id="horizontalTab">
+                    <div class="container">
+                        <div>
+                            <a href="/Menu/MenuCreate" style="width:40%" class="login100-form-btn">Yeni Menü Ekle</a>
+                        </div>
+                        <br />
+                        <table class="table table-hover" style="cursor:pointer" id="tbldata">
+                            <thead>
+                                <tr>
+                                    <td>Başlık</td>
+                                    <td>Görünürlük</td>
+                                    <td>Sıra</td>
+                                    <td>Link</td>
+                                    <td>Düzenle</td>
+                                    <td>Sil</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Menus)
+                                {
+                                <tr>
+                                    <td>@item.Header</td>
+                                    <td>@item.IsVisible</td>
+                                    <td>@item.Row</td>
+                                    <td>@item.Link</td>
+                                    <td>@Html.ActionLink("Düzenle", "EditMenu", new { id = item.Id }, new { @class = "btn btn-warning" })</td>
+                                    <td>@Html.ActionLink("Sil", "DeleteMenu", new { id = item.Id }, new { @class = "btn btn-danger" })</td>
+                                    <!--<td>@Html.ActionLink("Detail", "DetailReservation", new { id = item.Id }, new { @class = "btn btn-danger" })</td>-->
+                                </tr>
+
+
+                                }
+                            </tbody>
+                        </table>
+                        @ViewBag.Message
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<br />
+<br />
+<br />
+<link href="~/Content/paging.css" rel="stylesheet" />
+<script src="~/Scripts/paging.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#tbldata').paging({ limit: 5 });
+    })
+</script>

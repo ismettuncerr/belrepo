@@ -1,0 +1,205 @@
+﻿@model Bel.Models.MenuCustomViewModel
+@{
+    ViewBag.Title = "MenuCreate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+
+<!-- include summernote css/js -->
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
+<!-- include libraries(jQuery, bootstrap) -->
+<section class="banner-area relative about-banner" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white">
+                    Menüler
+                </h1>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="course-details-area pt-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 left-contents">
+                <div class="jq-tab-wrapper" id="horizontalTab">
+
+                    @using (Html.BeginForm("MenuCreate", "Menu", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+
+                        <div class="wrap-input100 validate-input m-b-18" data-validate="Haber Başlığı">
+                            @Html.Label("Başlık", new { @class = "label-input100" })
+                            @Html.TextBoxFor(k => Model.Header, new { @class = "input100" })
+                            @Html.ValidationMessageFor(k => Model.Header, null, new { @class = "text-danger" })
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-18" data-validate="Haber Başlığı">
+                            @Html.Label("Sıra", new { @class = "label-input100" })
+                            @Html.TextBoxFor(k => Model.Row, null, new { @class = "input100" , @type = "number" })
+                            @Html.ValidationMessageFor(k => Model.Row, null, new { @class = "text-danger" })
+                            <span class="focus-input100"></span>
+                        </div>
+                        @*<div class="wrap-input100 validate-input m-b-18" data-validate="Haber Başlığı">
+                                @Html.Label("Detay", new { @class = "label-input100" })
+                                @Html.TextBoxFor(k => Model.Detail, new { @class = "input100" })
+                                @Html.ValidationMessageFor(k => Model.Detail, null, new { @class = "text-danger" })
+                                <span class="focus-input100"></span>
+                            </div>*@
+                        <div class="wrap-input100 validate-input m-b-18" data-validate="Haber Başlığı">
+                            @Html.Label("Link Tipi", new { @class = "label-input100" })
+                            @Html.DropDownListFor(x => Model.LinkType, Model.LinkTypes, "Seçiniz", new { @class = "form-control", style = "height: 30px" })<br />
+                            @Html.ValidationMessageFor(k => Model.LinkType, null, new { @class = "text-danger" })
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input m-b-18" data-validate="Haber Başlığı">
+                            @Html.Label("Link", new { @class = "label-input100" })
+                            @Html.TextBoxFor(k => Model.Link, new { @class = "input100" })
+                            @Html.ValidationMessageFor(k => Model.Link, null, new { @class = "text-danger" })
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-18" data-validate="Haber Başlığı">
+                            @Html.Label("Görünürlük", new { @class = "label-input100" })
+                            @Html.DropDownListFor(x => Model.IsVisible, Model.IsVisibles, "Seçiniz", new { @class = "form-control", style = "height: 30px" })<br />
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+                            <span class="label-input100">Resim</span>
+                            <input type="file" name="Image" class="input100" />
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+                            <span class="label-input100">Detay</span>
+                            <textarea id="Detail" name="Detail">@Model.Detail</textarea>
+                        </div>
+
+
+                        <input type="submit" value="Ekle" class="btn btn-success" />
+                        @*@Html.ActionLink("Back", "index", null, new { @class = "btn btn-primary" })<br />*@
+                    }
+
+
+
+
+
+
+
+
+
+
+                    @*<form class="login100-form validate-form" action="/Menu/MenuCreate" method="post" enctype="multipart/form-data">
+                            <div class="wrap-input100 validate-input m-b-18" data-validate="Menü Başlığı">
+                                <span class="label-input100">Başlık</span>
+                                <input class="input100" type="text" name="Header" maxlength="50" required placeholder="Menü Başlığı">
+                                <span class="focus-input100"></span>
+                            </div>
+                            <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+                                <span class="label-input100">Görünürlük</span>
+                                <span class="focus-input100"></span>
+                            </div>
+                            <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+                                <span class="label-input100">Sıra</span>
+                                <input type="number" name="Row" id="Row" class="input100" />
+
+                                <span class="focus-input100"></span>
+                            </div>
+                            <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+                                <span class="label-input100">Resim</span>
+                                <input type="file" name="Image" id="Image" class="input100" />
+                                <span class="focus-input100"></span>
+                            </div>
+
+                            <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+                                <span class="label-input100">Detay</span>
+                                <textarea id="Detail" name="Detail"></textarea>
+                                <span class="focus-input100"></span>
+                            </div>
+
+                            <div class="container-login100-form-btn">
+                                <button type="submit" class="login100-form-btn">Kaydet</button>
+                            </div>
+                        </form>*@
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br />
+<br />
+<br />
+
+<script>
+    $(document).ready(function () {
+        $('#Detail').summernote({
+            toolbar: [
+                // [groupName, [list of button]]
+                ['fontname', ['fontname']],
+                ['style', ['style']],
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['para', ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull']],
+                ['color', ['color']],
+                ['insert', ['link']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ],
+            placeholder: 'Detay',
+            tabsize: 2,
+            height: 300
+        });
+    });
+</script>
+@*<script>
+        $(document).ready(function () {
+            $('#NewsContent').summernote({
+                toolbar: [
+                    // [groupName, [list of button]]
+                    ['fontname', ['fontname']],
+                    ['style', ['style']],
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['fontsize', ['fontsize']],
+                    ['para', ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull']],
+                    ['color', ['color']],
+                    ['insert', ['link']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ],
+                placeholder: 'Haber İçeriği',
+                tabsize: 2,
+                height: 300
+            });
+            $('#NewsBrief').summernote({
+                toolbar: [
+                    // [groupName, [list of button]]
+                    ['fontname', ['fontname']],
+                    ['style', ['style']],
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['fontsize', ['fontsize']],
+                    ['para', ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull']],
+                    ['color', ['color']],
+                    ['insert', ['link']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ],
+                placeholder: 'Haber Özeti',
+                tabsize: 2,
+                height: 300
+            });
+        });
+    </script>*@
+
+

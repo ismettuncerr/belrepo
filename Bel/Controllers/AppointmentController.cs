@@ -30,19 +30,20 @@ namespace Bel.Controllers
         }
 
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             //var reservations = new ReservationViewModel();
             //return View(reservations);
             return RedirectToAction("ActiveReservationForAdmin");
         }
-        [Authorize(Roles = "Guest")]
+        //[Authorize(Roles = "Guest")]
         public ActionResult Appointment()
         {
 
             appointmentViewModel.municipalities = userList();
             appointmentViewModel.schoolClasses = schoolClass(Convert.ToInt32(ticket().Name));
+            appointmentViewModel.Users = dataClient.UserRepository.GetAll().ToList();
             if (TempData["shortMessage"] != null)
             {
                 ViewBag.Message = TempData["shortMessage"].ToString();
@@ -189,7 +190,7 @@ namespace Bel.Controllers
             reservation.RefClassHourId = Convert.ToInt32(reservationCustomViewModel.hour);
             reservation.RefMunicipalityClassId = Convert.ToInt32(reservationCustomViewModel.municipalityClassId);
             reservation.StudentsJson = studentJson;
-            reservation.RefUserId = Convert.ToInt32(ticket().Name);
+            reservation.RefUserId = reservationCustomViewModel.UserId > 0 ? reservationCustomViewModel.UserId : Convert.ToInt32(ticket().Name);
             reservation.RefSchoolId = reservationCustomViewModel.schoolClassId;
             reservation.ReservationDate = DateTime.Parse(reservationCustomViewModel.datepicker);
             TempData["shortMessage"] = dataClient.ReservationRepository.saveReservation(reservation);

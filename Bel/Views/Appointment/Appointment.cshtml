@@ -89,6 +89,23 @@
                 <div class="jq-tab-wrapper" id="horizontalTab">
 
                     <form class="login100-form validate-form" action="/Appointment/GetAppointment" method="post" enctype="multipart/form-data">
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+                                <span class="label-input100">Okul</span>
+                                <span class="focus-input100"></span>
+                                <div class="form-select" id="service-select">
+                                    <select id="Id" name="UserId" required>
+                                        <option datd-display="">Okul Seçiniz</option>
+                                        @foreach (var item in Model.Users)
+                                        {
+                                            <option value="@item.Id">@item.Name</option>
+                                        }
+                                    </select>
+
+                                </div>
+                            </div>
+                        }
                         <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
                             <span class="label-input100">Sınıf</span>
                             <span class="focus-input100"></span>

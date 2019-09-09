@@ -36,6 +36,7 @@ namespace Bel.DataLayer
         public virtual DbSet<Gallery> Gallery { get; set; }
         public virtual DbSet<News> News { get; set; }
         public virtual DbSet<Contact> Contact { get; set; }
+        public virtual DbSet<Menu> Menu { get; set; }
         public virtual DbSet<Slider> Slider { get; set; }
         public virtual DbSet<About> About { get; set; }
     

@@ -86,11 +86,15 @@
     <Compile Include="Interfaces\IGalleryRepository.cs" />
     <Compile Include="Interfaces\IAboutRepository.cs" />
     <Compile Include="Interfaces\IContactRepository.cs" />
+    <Compile Include="Interfaces\IMenuRepository.cs" />
     <Compile Include="Interfaces\INewsRepository.cs" />
     <Compile Include="Interfaces\IUserRoleRepository.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Interfaces\ISchoolClassRepository.cs" />
+    <Compile Include="Menu.cs">
+      <DependentUpon>bel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\ReservationClassHour.cs" />
     <Compile Include="Model\ReservationModel.cs" />
     <Compile Include="Model\SchoolClassModel.cs" />
@@ -106,6 +110,7 @@
     <Compile Include="Repository\GalleryRepository.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
     <Compile Include="Repository\MunicipalityClassRepository.cs" />
+    <Compile Include="Repository\MenuRepository.cs" />
     <Compile Include="Repository\NewsRepository.cs" />
     <Compile Include="Repository\ReservationRepository.cs" />
     <Compile Include="Repository\SchoolClassRepository.cs" />

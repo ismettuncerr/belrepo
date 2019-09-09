@@ -11,5 +11,6 @@ namespace Bel.Models
     {
         public List<MunicipalityClass> municipalities { get; set; }
         public List<SchoolClassModel> schoolClasses { get; set; }
+        public List<User> Users { get; set; }
     }
 }
