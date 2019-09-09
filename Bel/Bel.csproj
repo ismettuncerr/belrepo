@@ -673,6 +673,10 @@
     <Content Include="img\gallery\g6.jpg" />
     <Content Include="img\gallery\g7.jpg" />
     <Content Include="img\iletisimbanner-481.jpg" />
+    <Content Include="img\kurumlogo\bagcilar_belediyesi.gif" />
+    <Content Include="img\kurumlogo\bagcilar_ilme_mem.gif" />
+    <Content Include="img\kurumlogo\istka_logo.gif" />
+    <Content Include="img\kurumlogo\sanayi_bakanligi.gif" />
     <Content Include="img\logo.png" />
     <Content Include="img\logo1.png" />
     <Content Include="img\logo2.png" />
